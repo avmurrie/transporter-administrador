@@ -8,7 +8,7 @@ import {ProveedorService} from '../../services/proveedor.service';
 })
 export class MenuusuarioComponent implements OnInit {
   proveedores:any=[]; //ARREGLO DE PROVEEDORES, ESTA SE COMUNICA CON EL HTML
-
+  filtroUsuario='';
   constructor(
     private proveedorServicio:ProveedorService
 

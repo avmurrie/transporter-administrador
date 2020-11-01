@@ -26,6 +26,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './pages/login/login.component';
+import { FiltroPipe } from './services/filtro.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoginComponent } from './pages/login/login.component';
     MenuproveedorComponent,
     MenuusuarioComponent,
     EmpresaComponent,
-    LoginComponent
+    LoginComponent,
+    FiltroPipe,
   ],
   imports: [
     BrowserModule,

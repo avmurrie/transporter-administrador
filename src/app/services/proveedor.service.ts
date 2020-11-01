@@ -7,7 +7,7 @@ import {Proveedor} from '../models/proveedor';
 })
 export class ProveedorService {
 /*  API_URI='http://ApiPROVEEDOR';*/
-    API_URI='http://ctvehicular.pythonanywhere.com/api/';
+    API_URI='https://ctvehicular.pythonanywhere.com/api/';
   constructor(
     private http:HttpClient
   ) { }

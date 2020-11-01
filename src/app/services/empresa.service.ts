@@ -5,7 +5,7 @@ import {Empresa} from '../models/empresa';
   providedIn: 'root'
 })
 export class EmpresaService {
-  API_URI='http://ApiEMPRESA';
+  API_URI='https://ApiEMPRESA';
 
   constructor(
     private http:HttpClient

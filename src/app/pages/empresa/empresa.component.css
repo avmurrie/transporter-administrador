@@ -1,0 +1,28 @@
+.page-content {
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+div h1 {
+    font-weight: bold;
+    color:#E5242F;
+    letter-spacing: 1px;
+}
+
+textarea {
+    width: 900px;
+    height: 300px;
+    margin-top: 30px;
+}
+
+.empresa{
+    background-color:  #EDEEF0;
+}
+
+button{
+    margin-left: 900px;
+    border: none; 
+    color:cornflowerblue;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

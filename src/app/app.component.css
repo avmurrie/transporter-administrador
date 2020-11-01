@@ -1,0 +1,39 @@
+.vertical-nav {
+    min-width: 15rem;
+    width: 15rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    background-color: #EDEEF0;
+
+  }
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 15rem;
+    transition: all 0.4s;
+  }
+
+#informationAdmin{
+    text-align: center;
+
+} 
+
+#informationAdmin{
+    background-color:  #E5242F;
+    color:white;
+}
+
+#header{
+    background: linear-gradient(-90deg,#20478B ,#2487C9);
+    width: calc(100%-15rem);
+    height: 6rem;
+}
+
+#header img{
+    margin-top: 30px;
+    margin-left: 25px;
+}

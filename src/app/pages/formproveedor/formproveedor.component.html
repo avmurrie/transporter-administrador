@@ -1,0 +1,163 @@
+<h1>AGREGAR PROVEEDOR</h1>
+
+<mat-horizontal-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Información del proveedor</ng-template>
+
+      <div class="izquierda">
+        <div class="container">
+          <h5>Correo electrónico</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="proveedor.correo" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Cédula</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="proveedor.cedula" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Nombre</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="proveedor.nombre" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Apellidos</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="proveedor.apellido" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Fecha de nacimiento</h5>
+          <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="proveedor.fechaNacimiento" [ngModelOptions]="{standalone: true}">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="derecha">
+        <div class="container">
+          <h5>Sexo</h5>
+          <mat-form-field appearance="outline">
+            <mat-select [(ngModel)]="proveedor.sexo"  [ngModelOptions]="{standalone: true}">
+              <mat-option value="hombre">Hombre</mat-option>
+              <mat-option value="mujer">Mujer</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Dirección</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="proveedor.direccion" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>        
+        </div>
+        <div class="container">
+          <h5>Teléfono</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="proveedor.telefono" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>        
+        </div>
+        <div class="container">
+          <h5>Cédula (foto)</h5>
+          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadCedula($event)">
+        </div>
+        <div class="container">
+          <h5>Licencia (foto)</h5>
+          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadLicencia($event)">
+        </div>
+      </div>
+
+      
+      <div>
+        <button mat-button matStepperNext>Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Información del vehículo</ng-template>
+
+      <div class="izquierda">
+        <div class="container">
+          <h5>Placa</h5>
+          <mat-form-field appearance="outline">
+            <input matInput  type="text" [(ngModel)]="vehiculo.placa" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Marca</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="vehiculo.marca" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Modelo</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="vehiculo.modelo" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Año</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="vehiculo.anio" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Color</h5>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" [(ngModel)]="vehiculo.color" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+      </div>
+
+      
+      <div class="derecha">
+        <div class="container">
+          <h5>Placa (foto)</h5>
+          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadPlaca($event)">
+        </div>
+        <div class="container">
+          <h5>Matrícula (foto)</h5>
+          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadMatricula($event)">
+        </div>
+        <div class="container">
+          <h5>Vehículo (foto)</h5>
+          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadVehiculo($event)">
+        </div>
+        <div class="container">
+          <h5>Servicio</h5>
+          <mat-form-field appearance="outline">
+            <mat-select [(ngModel)]="vehiculo.servicio"  [ngModelOptions]="{standalone: true}" >
+              <mat-option value="mudanza">Mudanza</mat-option>
+              <mat-option value="mudanzax2">Mudanzax2</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <h5>Tipo de vehículo</h5>
+          <mat-form-field appearance="outline">
+            <mat-select [(ngModel)]="vehiculo.tipoVehiculo"  [ngModelOptions]="{standalone: true}">
+              <mat-option value="camion">Camión</mat-option>
+              <mat-option value="camioneta">Camioneta</mat-option>
+            </mat-select>
+            <h2>{{vehiculo.tipoVehiculo}}</h2>
+          </mat-form-field>
+        </div>
+      </div>
+    
+      <div>
+        <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button  [mat-dialog-close]="true" (click)="guardarProveedor()">Agregar</button>
+     
+    </div>
+    </form>
+  </mat-step>
+  
+
+</mat-horizontal-stepper>

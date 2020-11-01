@@ -1,0 +1,27 @@
+<div  class="page-content">
+    <h1>PROVEEDORES</h1>
+
+
+    <div class="input-group md-form form-sm form-2 pl-0">
+        <a (click)="openDialog()"><img src="assets/iconos/agregar.png" alt="agregar"  width="35" height="35"></a>
+        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Buscar" aria-label="Search">
+        <div class="input-group-append">
+          <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
+              aria-hidden="true"></i></span>
+        </div>
+    </div>
+    <span class="glyphicon glyphicon-name"></span>
+
+    <table>
+        <tr>
+            <th>Usuario</th>
+            <th>Estado</th>
+            <th>Habilitar/Inhabilitar</th>
+        </tr>
+        <tr *ngFor="let proveedor of proveedores">
+            <td>{{proveedor.idDriver}}</td>
+            <td>{{proveedor.stateDriver}}</td>
+            <td><mat-slide-toggle (change)="cambiar(proveedor.idDriver)" [color]='primary'></mat-slide-toggle></td>
+        </tr>
+    </table>
+</div>

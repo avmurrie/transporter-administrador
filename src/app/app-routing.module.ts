@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import {MenuproveedorComponent} from './pages/menuproveedor/menuproveedor.component';
 import {MenuusuarioComponent} from './pages/menuusuario/menuusuario.component';
 import {EmpresaComponent} from './pages/empresa/empresa.component';
-import {LoginComponent} from './pages/login/login.component';
+import {DashboardComponent} from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
   },
   {
@@ -23,8 +23,9 @@ const routes: Routes = [
     path:'empresa',
     component:EmpresaComponent
   },
-  {path:'login',
-    component:LoginComponent
+  {
+    path:'dashboard',
+    component:DashboardComponent
   }
 ];
 

@@ -28,6 +28,7 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { FiltroPipe } from './services/filtro.pipe';
 import { AuthService } from '../app/services/auth.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AuthService } from '../app/services/auth.service';
     EmpresaComponent,
     LoginComponent,
     FiltroPipe,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

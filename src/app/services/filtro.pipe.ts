@@ -11,7 +11,7 @@ export class FiltroPipe implements PipeTransform {
     if(arg==='' || arg.length<3) return value;
     const resultado=[];
     for(const proveedor of value){
-      if(proveedor.idDriver.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+      if(proveedor.lnameDriver.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
         resultado.push(proveedor);
       };
     };

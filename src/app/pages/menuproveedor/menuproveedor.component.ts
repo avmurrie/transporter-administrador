@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ThemePalette} from '@angular/material/core';
 import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import {FormproveedorComponent} from '../formproveedor/formproveedor.component';
 import {ProveedorService} from '../../services/proveedor.service';
@@ -9,6 +10,7 @@ import {ProveedorService} from '../../services/proveedor.service';
   styleUrls: ['./menuproveedor.component.css']
 })
 export class MenuproveedorComponent implements OnInit {
+  color: ThemePalette = 'primary';
   proveedores:any=[]; //ARREGLO DE PROVEEDORES, ESTA SE COMUNICA CON EL HTML
   proveedor:any=[];
   isChecked = true;
@@ -43,8 +45,8 @@ export class MenuproveedorComponent implements OnInit {
     )
   }
 
-  cambiar(id:string){
-    console.log("cambio");
+  cambiar(id:string,event:boolean){
+    console.log("cambio"+id+" el evento es "+event);
     this.proveedorServicio.editEstadoProveedor(id,this.proveedor);
   }
 

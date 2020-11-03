@@ -23,8 +23,8 @@ export class FormproveedorComponent implements OnInit {
   proveedor:Proveedor={
     cedula:'',
     correo:'',
-    nombre:'',
-    apellido:'',
+    nameDriver:'',
+    LnameDriver:'',
     fechaNacimiento:'',
     sexo:'',
     telefono:'',

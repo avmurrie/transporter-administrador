@@ -14,14 +14,16 @@
 
     <table>
         <tr>
-            <th>Usuario</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
             <th>Estado</th>
             <th>Habilitar/Inhabilitar</th>
         </tr>
         <tr *ngFor="let proveedor of proveedores">
-            <td>{{proveedor.idDriver}}</td>
+            <td>{{proveedor.lnameDriver}}</td>
+            <td>{{proveedor.nameDriver}}</td>
             <td>{{proveedor.stateDriver}}</td>
-            <td><mat-slide-toggle (change)="cambiar(proveedor.idDriver)" [color]='primary'></mat-slide-toggle></td>
+            <td><mat-slide-toggle [color]="color" checked="{{proveedor.stateDriver}}" (change)="cambiar(proveedor.idDriver,$event)" ></mat-slide-toggle></td>
         </tr>
     </table>
 </div>

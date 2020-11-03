@@ -31,9 +31,19 @@
     background: linear-gradient(-90deg,#20478B ,#2487C9);
     width: calc(100%-15rem);
     height: 6rem;
+    position: relative;
 }
 
-#header img{
+#logo{
     margin-top: 30px;
     margin-left: 25px;
 }
+
+.img-chat{
+    height: 1.5em;
+    position: absolute;
+    right:10em;
+    top: 3em;
+
+}
+

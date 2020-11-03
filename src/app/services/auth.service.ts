@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {AngularFireAuth} from '@angular/fire/auth'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  API_URI='http://ApiEMPRESA';
 
-  constructor(
-    private http:HttpClient
-  ) { }
+  isLoggedIn = false
+  constructor(public firebaseAuth : AngularFireAuth) { }
+  async signin(email: string, password : string){
+    await this.firebaseAuth.signInWithEmailAndPassword(email,password)
+    .then(res=>{
+      this.isLoggedIn = true
+      localStorage.setItem('user',JSON.stringify(res.user))
+    })
+  }
 
-  login(user){
-    return this.http.post(this.API_URI+'/login',user);
+  logout(){
+    this.firebaseAuth.signOut()
+    localStorage.removeItem('user')
   }
 }

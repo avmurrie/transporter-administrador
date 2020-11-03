@@ -27,6 +27,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { FiltroPipe } from './services/filtro.pipe';
+import { AuthService } from '../app/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { FiltroPipe } from './services/filtro.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule
   ],
-  providers: [ProveedorService],
+  providers: [ProveedorService,AuthService],
   entryComponents:[MatDialogModule,MatSelectModule],
   bootstrap: [AppComponent]
 })

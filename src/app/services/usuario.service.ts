@@ -6,7 +6,7 @@ import {Usuario} from '../models/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-  API_URI='http://ApUSUARIO';
+  API_URI='https://ApUSUARIO';
 
   constructor(
     private http:HttpClient

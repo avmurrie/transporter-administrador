@@ -4,8 +4,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators'
 import { ChatRoom } from '../models/chat-room';
-//import { AuthService } from './auth.service';
-
+import { AuthService } from './auth.service';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class ChatService {
 
   constructor(
     private afs: AngularFirestore,
-    //private authService: AuthService,
+    private authService: AuthService,
 
   ) {
     this.chatCollection = this.afs.collection<any>('chatRoomsTest');
@@ -47,9 +47,9 @@ export class ChatService {
               let uids =data.id.split('-');
               let uidProv= uids[0];
               let uidOther= uids[1];
-              /*let uidCurrent = this.authService.userApp.uid;
+              let uidCurrent = this.authService.userApp.uid;
               console.log(this.authService.userApp);
-              return (uidCurrent===uidProv || uidCurrent==uidOther)*/
+              return (uidCurrent===uidProv || uidCurrent==uidOther)
               
           });
         }
@@ -61,6 +61,16 @@ export class ChatService {
     console.log('cg> ',chatRoom)
     this.messagesCollection = this.afs.collection<any>(`/chatRoomsTest/${chatRoom}/messages`);
     return this.messagesCollection.valueChanges();
+  }
+
+  addChatMessage(chatRoom:string,msg:string){
+    return this.afs.collection(`/chatRoomsTest/${chatRoom}/messages`).add(
+      {
+        msg,
+        from: this.authService.userApp.uid,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }
+    );
   }
 
 } 

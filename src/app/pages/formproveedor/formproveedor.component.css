@@ -33,3 +33,11 @@ button{
     text-transform: uppercase;
     margin:10px;
 }
+
+h5{
+    margin:2px;
+}
+
+input{
+    font-size: 12px;
+}

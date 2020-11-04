@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ThemePalette} from '@angular/material/core';
 import {ProveedorService} from '../../services/proveedor.service';
 
 @Component({
@@ -7,8 +8,9 @@ import {ProveedorService} from '../../services/proveedor.service';
   styleUrls: ['./menuusuario.component.css']
 })
 export class MenuusuarioComponent implements OnInit {
+  color: ThemePalette = 'primary';
   proveedores:any=[]; //ARREGLO DE PROVEEDORES, ESTA SE COMUNICA CON EL HTML
-
+  filtroUsuario='';
   constructor(
     private proveedorServicio:ProveedorService
 

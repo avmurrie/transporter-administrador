@@ -2,24 +2,25 @@
     <h1>USUARUIOS</h1>
 
     <div class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Buscar" aria-label="Search">
+        <input class="form-control my-0 py-1 red-border" type="text" name="filtroUsuario" placeholder="Buscar" [(ngModel)]="filtroUsuario">
         <div class="input-group-append">
           <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
               aria-hidden="true"></i></span>
         </div>
     </div>
-    <span class="glyphicon glyphicon-name"></span>
 
     <table>
         <tr>
-            <th>Usuario</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
             <th>Estado</th>
             <th>Habilitar/Inhabilitar</th>
         </tr>
-        <tr *ngFor="let proveedor of proveedores">
-            <td>{{proveedor.idDriver}}</td>
+        <tr *ngFor="let proveedor of proveedores | filtro:filtroUsuario">
+            <td>{{proveedor.lnameDriver}}</td>
+            <td>{{proveedor.nameDriver}}</td>
             <td>{{proveedor.stateDriver}}</td>
-            <td><mat-slide-toggle (change)="cambiar(proveedor.idDriver)" [color]='primary'></mat-slide-toggle></td>
+            <td><mat-slide-toggle [color]="color" checked="{{proveedor.stateDriver}}" (change)="cambiar(proveedor.idDriver,$event)" ></mat-slide-toggle></td>
         </tr>
     </table>
 </div>

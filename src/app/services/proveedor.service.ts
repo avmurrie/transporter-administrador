@@ -7,7 +7,7 @@ import {Proveedor} from '../models/proveedor';
 })
 export class ProveedorService {
 /*  API_URI='http://ApiPROVEEDOR';*/
-    API_URI='http://ctvehicular.pythonanywhere.com/api/';
+    API_URI='https://ctvehicular.pythonanywhere.com/api/';
   constructor(
     private http:HttpClient
   ) { }
@@ -25,13 +25,13 @@ export class ProveedorService {
 
   //METODO PARA ENVIAR UN PROVEEDOR AL BACKEND Y REGISTRARLO
   saveProveedor(proveedor: Proveedor){
-    return this.http.post(`${this.API_URI}/proveedor`,proveedor);
+    return this.http.put(`${this.API_URI}/proveedor`,proveedor);
   }
 
   //METODO PARA EDITAR EL ESTADO HABILITADO/INHABILITADO DE UN PROVEEDOR AL BACKEND Y REGISTRARLO
   editEstadoProveedor(id:string,estadoEditado:string){
     console.log(estadoEditado);
-    return this.http.put(`${this.API_URI}/driver/${id}`,estadoEditado);
+    return this.http.post(`${this.API_URI}/driver/${id}`,estadoEditado);
   }
 
 }

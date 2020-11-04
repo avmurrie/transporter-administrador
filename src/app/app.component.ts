@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
-import {FormproveedorComponent} from '../app/pages/formproveedor/formproveedor.component';
+import { Component, EventEmitter, Output } from '@angular/core';
+import {AuthService} from '../app/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +8,32 @@ import {FormproveedorComponent} from '../app/pages/formproveedor/formproveedor.c
 })
 export class AppComponent {
   title = 'angular';
+  isSignedIn = false
+  @Output() isLogout = new EventEmitter<void>()
+  constructor(
+    private firebaseService: AuthService
+  ){}
+  ngOnInit(){
+    if(localStorage.getItem('user')!== null)
+    this.isSignedIn= true
+    else
+    this.isSignedIn = false
+  }
 
-  constructor(private dialog: MatDialog){}
-  
-  openDialog() {
-    console.log('que mas mi perro x2');
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.disableClose=false;
-    dialogConfig.autoFocus=true;
-    dialogConfig.height='80%';
-    dialogConfig.width='70%'
-    const dialogRef =  this.dialog.open(FormproveedorComponent, dialogConfig);
+  async onSignin(email:string,password:string){
+    await this.firebaseService.signin(email,password)
+    if(this.firebaseService.isLoggedIn)
+    this.isSignedIn = true
+  }
+  handleLogout(){
+    this.isSignedIn = false
+
+  }
+
+  logout(){
+    this.firebaseService.logout();
+    this.isLogout.emit();
+    this.isSignedIn=false;
   }
 
 }

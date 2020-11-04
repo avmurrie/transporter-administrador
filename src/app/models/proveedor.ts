@@ -1,8 +1,8 @@
 export interface Proveedor{
     cedula?:string;
     correo?:string;
-    nombre?:string;
-    apellido?:string;
+    nameDriver?:string;
+    LnameDriver?:string;
     fechaNacimiento?:string;
     sexo?:string;
     direccion?:string;
@@ -13,4 +13,5 @@ export interface Proveedor{
     //NOMBRE VARIABLES QUE MANEJA ACTUALMENTE EL BACKEND
     idDriver?:string;
     ciDriver?:string;
+    stateDrive?:boolean;
 }

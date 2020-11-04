@@ -26,6 +26,10 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { ChatComponent } from './pages/chat/chat.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FiltroPipe } from './services/filtro.pipe';
+import { AuthService } from '../app/services/auth.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { ChatComponent } from './pages/chat/chat.component';
     MenuproveedorComponent,
     MenuusuarioComponent,
     EmpresaComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    FiltroPipe,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,7 @@ import { ChatComponent } from './pages/chat/chat.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule
   ],
-  providers: [ProveedorService],
+  providers: [ProveedorService,AuthService],
   entryComponents:[MatDialogModule,MatSelectModule],
   bootstrap: [AppComponent]
 })

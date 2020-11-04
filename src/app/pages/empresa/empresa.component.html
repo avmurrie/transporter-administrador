@@ -6,7 +6,7 @@
         <mat-tab label="POLÍTICAS">
             <button (click)="editarPolitica()">Editar</button>
             <div class="politicas">
-                <textarea matInput></textarea>
+                <textarea matInput [(ngModel)]="politica.descriptionPolice" ></textarea>
             </div>
         </mat-tab>
 

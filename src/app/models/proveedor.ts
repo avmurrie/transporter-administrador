@@ -13,5 +13,5 @@ export interface Proveedor{
     //NOMBRE VARIABLES QUE MANEJA ACTUALMENTE EL BACKEND
     idDriver?:string;
     ciDriver?:string;
-    stateDrive?:boolean;
+    stateDriver?:boolean;
 }

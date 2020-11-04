@@ -29,6 +29,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FiltroPipe } from './services/filtro.pipe';
 import { AuthService } from '../app/services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import {ShowHidePasswordModule} from 'ngx-show-hide-password';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     HttpClientModule,
     MatSlideToggleModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ShowHidePasswordModule 
   ],
   providers: [ProveedorService,AuthService],
   entryComponents:[MatDialogModule,MatSelectModule],

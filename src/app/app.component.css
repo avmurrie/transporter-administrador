@@ -38,14 +38,11 @@
     margin-left: 25px;
 }
 
-
 .row{
-    margin-top: 50px;
+    margin:80px;
     text-align: center;
 }
-.card{
-    width: 500px;
-}
+
 
 button{
     background-color: #E5242F;
@@ -54,9 +51,4 @@ button{
 
 button:hover{
     background-color: #E5242F;
-
-}
-
-input{
-    border-bottom: 1px solid black;
 }

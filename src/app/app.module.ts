@@ -25,12 +25,18 @@ import { EmpresaComponent } from './pages/empresa/empresa.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { ChatComponent } from './pages/chat/chat.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FiltroPipe } from './services/filtro.pipe';
 import { AuthService } from '../app/services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {ShowHidePasswordModule} from 'ngx-show-hide-password';
 
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+import {ChatService} from './services/chat.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +45,12 @@ import {ShowHidePasswordModule} from 'ngx-show-hide-password';
     MenuproveedorComponent,
     MenuusuarioComponent,
     EmpresaComponent,
+    ChatComponent,
     LoginComponent,
     FiltroPipe,
     DashboardComponent,
+    
+
   ],
   imports: [
     BrowserModule,
@@ -63,9 +72,12 @@ import {ShowHidePasswordModule} from 'ngx-show-hide-password';
     MatSlideToggleModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    ShowHidePasswordModule 
+    ShowHidePasswordModule ,
+    MatListModule,
+    MatGridListModule,
+    MatSidenavModule
   ],
-  providers: [ProveedorService,AuthService],
+  providers: [ProveedorService,AuthService, ChatService ],
   entryComponents:[MatDialogModule,MatSelectModule],
   bootstrap: [AppComponent]
 })

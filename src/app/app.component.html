@@ -40,13 +40,18 @@
         </div>
     </div>
 
-    <div class="page-content" id="content">
-        <div id="header" >
-            <a class="nav-link" routerLink="/">
-                <img src="assets/iconos/logo.png" alt="logo" width="220" height="25">
-                <button id="cerrar"(click)="logout()">Cerrar sesión</button>
+
+<div class="page-content" id="content">
+    <div id="header">
+            <a class="nav-link" routerLink="/"><img id="logo" src="assets/iconos/logo.png" alt="logo" width="220" height="25"></a>
+            <a class="nav-link" routerLink="/chat">
+                <img class="img-chat" src="./assets/iconos/chat_activo.png" >
             </a>
-        </div>
-        <router-outlet></router-outlet>
+            <button class="logout"  id="cerrar"(click)="logout()">Cerrar sesión</button>
+
     </div>
+
+    
+
+    <router-outlet></router-outlet>
 </div>

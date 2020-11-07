@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {AuthService} from '../app/services/auth.service';
+import {Admin} from '../app/models/admin';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,15 @@ import {AuthService} from '../app/services/auth.service';
 })
 export class AppComponent {
   title = 'angular';
-  isSignedIn = false
-  @Output() isLogout = new EventEmitter<void>()
+  isSignedIn = false;
+  showPassword=false;
+  passwordIcon='eye';
+
+  contrasenia: string
+
+  @Output() isLogout = new EventEmitter<void>();
+  user:any;
+  email:any;
   constructor(
     private firebaseService: AuthService
   ){}
@@ -22,18 +30,32 @@ export class AppComponent {
 
   async onSignin(email:string,password:string){
     await this.firebaseService.signin(email,password)
-    if(this.firebaseService.isLoggedIn)
-    this.isSignedIn = true
+    if(this.firebaseService.isLoggedIn){
+    this.isSignedIn = true;
+    this.user=JSON.parse(localStorage.getItem('user'));
+    //console.log('blabla',this.user);
+    this.email=this.user.email;
+    //console.log('correo'+email);
+  }
   }
   handleLogout(){
     this.isSignedIn = false
-
   }
 
   logout(){
     this.firebaseService.logout();
     this.isLogout.emit();
     this.isSignedIn=false;
+  }
+
+  iconPassword(){
+    this.showPassword=!this.showPassword;
+    if(this.passwordIcon=='eye'){
+      this.passwordIcon='eye-off';
+    }
+    else{
+      this.passwordIcon='eye';
+    }
   }
 
 }

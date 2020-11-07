@@ -1,45 +1,93 @@
 <div class="page-content">
     <h1>CHAT</h1>
-<div class="chat">
-    <div>
-        <button mat-raised-button class="btn-chat">NUEVO CHAT</button>
 
-        <div class="input-group md-form form-sm">
-            <input class="form-control search" type="text" placeholder="Buscar" aria-label="Search">
-            <img class="input-img" src="./assets/iconos/buscar.png">
+    <div class="chat">
+        <div>
+            <button mat-raised-button class="btn-chat">NUEVO CHAT</button>
 
-            <!--<div class="input-group-append">
+            <div class="input-group md-form form-sm">
+                <input class="form-control search" type="text" placeholder="Buscar" aria-label="Search">
+                <img class="input-img" src="./assets/iconos/buscar.png">
+
+                <!--<div class="input-group-append">
           <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
               aria-hidden="true"></i></span>
         </div>-->
-        </div>
-        
+            </div>
 
-        <div class="msg-bg">
-            <h1>cards de chat</h1>
+            <div class="msg-bg">
+                <mat-list>
+                    <mat-list-item *ngFor="let chat of chatRooms" (click)="openChat(chat)">
+                        <img matListAvatar src="./assets/iconos/avatar.png">
+                        <h3 matLine> {{chat.id}} </h3>
+                        <p matLine>
+                            <span> {{chat.descripcion}} </span>
+
+                        </p>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+
+        </div>
+
+
+        <!--<div class="chat-window">
+            <div class="chat-header">
+                <img class="img-avatar" src="./assets/iconos/avatar.png">
+                <span class="username">{{newMsg}}</span>
+            </div>
+
+            <dic class= "msg-box text-right" *ngFor=let message of messages>
+                <span> Mensaje</span>
+                <span> Hora</span>
+        </div>
+    
+    -->
+
+        <div class="chat-content">
+            <div class="chat-header">
+                <img class="img-avatar" src="./assets/iconos/avatar.png">
+                <span class="username">Usuario</span>
+            </div>
+            <div class="chat-bg">
+
+                <div class="">
+                    <div class="message-box" *ngFor="let message of messages">
+
+                        
+                            <div class="chat-message">
+                                <b>
+                                    myMsg: {{message.myMsg}}
+                                </b>
+                                <br>
+                                <span>
+                                    {{message.msg}}
+                                </span>
+                                <div class='time text-right'>
+                                    <br>
+                                    {{message.createdAt?.toMillis() | date:'short'}}
+                                </div>
+                            </div>
+                       
+                    </div>
+                </div>
+
+
+                <div class="chat-op">
+                    <input class="text-msg" type="text" placeholder="Escriba un mensaje aquí" 
+                    [(ngModel)]="newMsg" (keyup.enter)="sendMessage()">
+                    <button class="btn-op">
+                        <img class="img-op" src="./assets/iconos/adjuntar.png">
+                    </button>
+                    <button class="btn-op" [disabled]='newMsg === ""' (click)='sendMessage()'>
+                        <img class="img-op" src="./assets/iconos/enviar.png">
+                    </button>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="chat-content">
-        <div class="chat-header">
-            <img class="img-avatar" src="./assets/iconos/avatar.png">
-            <span class="username">Usuario</span>            
-        </div>
-        <div class="chat-bg">
-            <div class="chat-op">
-            <input class="text-msg" type="text" placeholder="Escriba un mensaje aquí">
-            <button class="btn-op">
-                <img class="img-op" src="./assets/iconos/adjuntar.png">
-            </button>
-            <button class="btn-op">
-                <img class="img-op" src="./assets/iconos/enviar.png">
-            </button>
-        </div> 
-
-        </div>
-
-    </div>
-
-    </div>
 </div>

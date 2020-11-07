@@ -5,7 +5,7 @@ import {Empresa} from '../models/empresa';
   providedIn: 'root'
 })
 export class EmpresaService {
-  API_URI='https://ApiEMPRESA';
+  API_URI='https://ctvehicular.pythonanywhere.com/api';
 
   constructor(
     private http:HttpClient
@@ -13,11 +13,13 @@ export class EmpresaService {
 
   //METODO PARA PEDIR AL BACKEND LA POLITICA DE LA EMPRESA
   getPolitica(){
-    return this.http.get(`${this.API_URI}/getPolitica`);
+    const id=2;
+    return this.http.get(`${this.API_URI}/police/${id}/`);
   }
 
    //METODO PARA EDITAR LA POLITICA DE LA EMPRESA
-  editPolitica(id:string,politicaEditada:Empresa){
-    return this.http.put(`${this.API_URI}/empresa/${id}`,politicaEditada);
+  editPolitica(politicaEditada:any){
+    const id=2;
+    return this.http.put(`${this.API_URI}/police/${id}/`,politicaEditada);
   }
 }

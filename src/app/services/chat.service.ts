@@ -6,17 +6,18 @@ import {map} from 'rxjs/operators'
 import { ChatRoom } from '../models/chat-room';
 import { AuthService } from './auth.service';
 import * as firebase from 'firebase';
+import { Message } from '../models/message';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(//{
+  //providedIn: 'root'
+)
 export class ChatService {
 
   private chatCollection: AngularFirestoreCollection<any>;
-  private chatRooms: Observable<any[]>;;
+  private chatRooms: Observable<any[]>;
 
-  private messagesCollection: AngularFirestoreCollection<any>;
-  public messages: Observable<any[]>;
+  private messagesCollection: AngularFirestoreCollection<Message>;
+  public messages: Observable<Message[]>;
 
 
 
@@ -26,7 +27,7 @@ export class ChatService {
     private authService: AuthService,
 
   ) {
-    this.chatCollection = this.afs.collection<any>('chatRoomsTest');
+    this.chatCollection = this.afs.collection<ChatRoom>('chatRoomsTest');
     this.chatRooms = this.chatCollection.snapshotChanges();
 
    }
@@ -45,21 +46,20 @@ export class ChatService {
           ).filter(data => {
               console.log('ChatRoom.id > ',data.id);
               let uids =data.id.split('-');
-              let uidProv= uids[0];
-              let uidOther= uids[1];
+              let uidadmin= uids[1];
+              let uidOther= uids[0];
               let uidCurrent = this.authService.userApp.uid;
-              console.log(this.authService.userApp);
-              return (uidCurrent===uidProv || uidCurrent==uidOther)
+              console.log('current user > ',this.authService.userApp);
+              return (uidCurrent===uidadmin || uidCurrent==uidOther)
               
           });
         }
       )
     )
   }
-
-  getMessages(chatRoom){
+  getMessages(chatRoom:string){
     console.log('cg> ',chatRoom)
-    this.messagesCollection = this.afs.collection<any>(`/chatRoomsTest/${chatRoom}/messages`);
+    this.messagesCollection = this.afs.collection<any>(`/chatRoomsTest/${chatRoom}/messages`,(ref)=>ref.orderBy('createdAt'));
     return this.messagesCollection.valueChanges();
   }
 

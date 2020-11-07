@@ -49,13 +49,20 @@
 
 
 .row{
-    margin-top: 50px;
+    margin:80px;
     text-align: center;
 }
-.card{
-    width: 500px;
-}
 
+.logout{
+    background-color: transparent;
+    border: none;
+    color:white;
+    position: absolute;
+    right:2em;
+    top: 3em;
+
+}
+/*
 button{
     background-color: #E5242F;
     color:white;
@@ -63,9 +70,5 @@ button{
 
 button:hover{
     background-color: #E5242F;
-
 }
-
-input{
-    border-bottom: 1px solid black;
-}
+*/

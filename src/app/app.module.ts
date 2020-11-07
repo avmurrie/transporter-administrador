@@ -30,7 +30,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { FiltroPipe } from './services/filtro.pipe';
 import { AuthService } from '../app/services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import {ShowHidePasswordModule} from 'ngx-show-hide-password';
 
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+import {ChatService} from './services/chat.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +49,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     LoginComponent,
     FiltroPipe,
     DashboardComponent,
+    
+
   ],
   imports: [
     BrowserModule,
@@ -63,9 +71,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     HttpClientModule,
     MatSlideToggleModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ShowHidePasswordModule ,
+    MatListModule,
+    MatGridListModule,
+    MatSidenavModule
   ],
-  providers: [ProveedorService,AuthService],
+  providers: [ProveedorService,AuthService, ChatService ],
   entryComponents:[MatDialogModule,MatSelectModule],
   bootstrap: [AppComponent]
 })

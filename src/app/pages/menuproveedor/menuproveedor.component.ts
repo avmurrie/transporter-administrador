@@ -3,6 +3,7 @@ import {ThemePalette} from '@angular/material/core';
 import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import {FormproveedorComponent} from '../formproveedor/formproveedor.component';
 import {ProveedorService} from '../../services/proveedor.service';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-menuproveedor',
@@ -14,6 +15,7 @@ export class MenuproveedorComponent implements OnInit {
   proveedores:any=[]; //ARREGLO DE PROVEEDORES, ESTA SE COMUNICA CON EL HTML
   proveedor:any=[];
   isChecked = true;
+  filtroUsuario='';
 
   constructor(
     private dialog: MatDialog,
@@ -45,9 +47,25 @@ export class MenuproveedorComponent implements OnInit {
     )
   }
 
-  cambiar(id:string,event:boolean){
-    console.log("cambio"+id+" el evento es "+event);
-    this.proveedorServicio.editEstadoProveedor(id,this.proveedor);
+  cambiar(id:string,event: MatSlideToggleChange){
+    this.proveedorServicio.getProveedor(id).subscribe(
+      res=>{
+        this.proveedor=res;
+        this.proveedor.stateDriver=event.checked;
+        console.log(this.proveedor);
+        this.proveedorServicio.editEstadoProveedor(id,this.proveedor).subscribe(
+          res=>{
+            console.log(res);
+            this.obtenerProveedores();
+          },
+          err=>{
+            console.error(err);
+            this.obtenerProveedores();
+          }
+        );
+      },
+      err=>console.log(err)
+    );
   }
 
 }

@@ -12,6 +12,7 @@ import {AngularFireStorage} from '@angular/fire/storage';
   styleUrls: ['./chat.component.css']
 })
 
+
 export class ChatComponent implements OnInit {
 
  public chatRooms: any=[];

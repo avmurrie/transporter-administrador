@@ -31,19 +31,6 @@
         </div>
 
 
-        <!--<div class="chat-window">
-            <div class="chat-header">
-                <img class="img-avatar" src="./assets/iconos/avatar.png">
-                <span class="username">{{newMsg}}</span>
-            </div>
-
-            <dic class= "msg-box text-right" *ngFor=let message of messages>
-                <span> Mensaje</span>
-                <span> Hora</span>
-        </div>
-    
-    -->
-
         <div class="chat-content">
             <div class="chat-header">
                 <img class="img-avatar" src="./assets/iconos/avatar.png">
@@ -51,31 +38,32 @@
             </div>
             <div class="chat-bg">
 
-                <div class="">
-                    <div class="message-box" *ngFor="let message of messages">
+                <table class=tb-chat>
+                    <tr class="message-box" *ngFor="let message of messages">
 
-                        
-                            <div class="chat-message">
-                                <b>
-                                    myMsg: {{message.myMsg}}
-                                </b>
-                                <br>
-                                <span>
-                                    {{message.msg}}
-                                </span>
-                                <div class='time text-right'>
-                                    <br>
-                                    {{message.createdAt?.toMillis() | date:'short'}}
-                                </div>
-                            </div>
-                       
-                    </div>
-                </div>
+                        <div class="message"
+                            [ngClass]='{ "my-message text-right": message.myMsg, "other-message text-left": !message.myMsg}'>
+                            <b>
+                                {{message.from}}
+                            </b>
+                            <br>
+                            <span>
+                                {{message.msg}}
+                            </span>
+                        </div>
+                        <th class='time text-right'>
+                            <br>
+                            {{message.createdAt?.toMillis() | date:'short'}}
+                        </th>
+
+
+                    </tr>
+                </table>
 
 
                 <div class="chat-op">
-                    <input class="text-msg" type="text" placeholder="Escriba un mensaje aquí" 
-                    [(ngModel)]="newMsg" (keyup.enter)="sendMessage()">
+                    <input class="text-msg" type="text" placeholder="Escriba un mensaje aquí" [(ngModel)]="newMsg"
+                        (keyup.enter)="sendMessage()">
                     <button class="btn-op">
                         <img class="img-op" src="./assets/iconos/adjuntar.png">
                     </button>

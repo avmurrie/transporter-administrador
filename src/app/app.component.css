@@ -52,3 +52,10 @@ button{
 button:hover{
     background-color: #E5242F;
 }
+
+#cerrar{
+    margin-left: 650px;
+    letter-spacing: 2px;
+    background-color: Transparent;
+    border: none;
+}

@@ -42,8 +42,10 @@
 
     <div class="page-content" id="content">
         <div id="header" >
-            <a class="nav-link" routerLink="/"><img src="assets/iconos/logo.png" alt="logo" width="220" height="25"></a>
-            <button (click)="logout()">cerrar sesion</button>
+            <a class="nav-link" routerLink="/">
+                <img src="assets/iconos/logo.png" alt="logo" width="220" height="25">
+                <button id="cerrar"(click)="logout()">Cerrar sesión</button>
+            </a>
         </div>
         <router-outlet></router-outlet>
     </div>

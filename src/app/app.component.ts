@@ -38,14 +38,12 @@ export class AppComponent {
     //console.log('correo'+email);
   }
   }
-  handleLogout(){
-    this.isSignedIn = false
-  }
+
 
   logout(){
+    this.isSignedIn=false;
     this.firebaseService.logout();
     this.isLogout.emit();
-    this.isSignedIn=false;
   }
 
   iconPassword(){

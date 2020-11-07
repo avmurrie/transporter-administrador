@@ -11,7 +11,7 @@ export class AuthService {
   async signin(email: string, password : string){
     await this.firebaseAuth.signInWithEmailAndPassword(email,password)
     .then(res=>{
-      this.isLoggedIn = true
+     this.isLoggedIn = true
       localStorage.setItem('user',JSON.stringify(res.user))})
      .catch( err =>{
       alert(err);
@@ -19,7 +19,8 @@ export class AuthService {
   }
 
   logout(){
-    this.firebaseAuth.signOut()
-    localStorage.removeItem('user')
+    this.isLoggedIn=false;
+    this.firebaseAuth.signOut();
+    localStorage.removeItem('user');
   }
 }

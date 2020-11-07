@@ -8,7 +8,6 @@ import {VehiculoService} from '../../services/vehiculo.service';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {FirebaseServicioService} from '../../services/firebase-servicio.service';
 import { Observable } from 'rxjs';
-import { error } from 'console';
 
 @Component({
   selector: 'app-formproveedor',

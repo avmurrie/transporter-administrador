@@ -28,7 +28,7 @@ export class MenuproveedorComponent implements OnInit {
   }
   
   openDialog() {
-    console.log('se abre el form dialog');
+   // console.log('se abre el form dialog');
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;

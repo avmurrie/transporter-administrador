@@ -6,7 +6,9 @@ import {Vehiculo} from 'src/app/models/vehiculo';
 import {ProveedorService} from '../../services/proveedor.service';
 import {VehiculoService} from '../../services/vehiculo.service';
 import {AngularFireStorage} from '@angular/fire/storage';
+import {FirebaseServicioService} from '../../services/firebase-servicio.service';
 import { Observable } from 'rxjs';
+import { error } from 'console';
 
 @Component({
   selector: 'app-formproveedor',
@@ -59,12 +61,13 @@ export class FormproveedorComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private proveedorServicio: ProveedorService,
     private vehiculoServicio:VehiculoService,
+    private firebaseServicio:FirebaseServicioService,
     private storage: AngularFireStorage
    ) { }
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      email:[Validators.required, Validators.minLength(5)],
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
@@ -74,6 +77,30 @@ export class FormproveedorComponent implements OnInit {
   guardarProveedor(){
     console.log(this.proveedor);
     console.log(this.vehiculo);
+    this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
+    .then((value)=>{
+      console.log("valor"+value);
+      this.firebaseServicio.sendPasswordResetEmail(this.proveedor.emailDriver)
+      .then(()=>{
+        this.proveedorServicio.saveProveedor(this.proveedor).subscribe(
+          res=>{
+            console.log(res);
+            this.proSave=res;
+            this.vehiculo.userVehicle=this.proSave.idDriver;
+            this.vehiculoServicio.guardarVehiculo(this.vehiculo).subscribe(
+            res=>{
+              console.log(res);
+            },
+            err=>{
+              console.log(err);
+            }
+          )
+        },
+          err=>{console.log(err)});
+        alert("Proveedor agregado");
+        console.log("proveedor agregado");
+      })
+    })
    /* this.proveedorServicio.saveProveedor(this.proveedor).subscribe(
       res=>{
         console.log(res);
@@ -90,10 +117,13 @@ export class FormproveedorComponent implements OnInit {
     },
       err=>{console.log(err)});
     alert("Proveedor agregado");*/
-  }
+    .catch((e)=>{
+      alert(e);  
+    })
+}
 
   async uploadCedula(e)  {
-    console.log('subir',e.target.files[0]);
+  //  console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`proveedores/cedula_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
@@ -102,7 +132,7 @@ export class FormproveedorComponent implements OnInit {
   }
 
   async uploadLicencia(e)  {
-    console.log('subir',e.target.files[0]);
+    //console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`proveedores/licencia_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
@@ -111,7 +141,7 @@ export class FormproveedorComponent implements OnInit {
   }
 
   async uploadPlaca(e)  {
-    console.log('subir',e.target.files[0]);
+    //console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`vehiculo/placa_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
@@ -119,7 +149,7 @@ export class FormproveedorComponent implements OnInit {
     (await task).ref.getDownloadURL().then(url=>{this.vehiculo.plpictureVehicle=url});
   }
   async uploadMatricula(e)  {
-    console.log('subir',e.target.files[0]);
+   // console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`vehiculo/matricula_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
@@ -127,13 +157,12 @@ export class FormproveedorComponent implements OnInit {
     (await task).ref.getDownloadURL().then(url=>{this.vehiculo.registrationVehicle=url});
   }
   async uploadVehiculo(e)  {
-    console.log('subir',e.target.files[0]);
+   // console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`vehiculo/vehiculo_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
     (await task).ref.getDownloadURL().then(url=>{this.vehiculo.pictureVehicle=url});
   }
-
 
 }

@@ -30,6 +30,7 @@
     "bootstrap": "^4.5.3",
     "firebase": "^7.24.0",
     "jquery": "^3.5.1",
+    "myriad-font": "0.0.2",
     "ngx-show-hide-password": "^2.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

@@ -1,26 +1,19 @@
-
 <div *ngIf="!isSignedIn">
-    <div class="row">
-        <div class="mx-auto">
-            <div class="card">
-                <img src="assets/iconos/LOGO3.png" width="450px" alt="logo"/>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Correo"  #emailSignup />
-                        </div>
-                        <div class="form-group">
-                            <input type="password"  id="password" class="form-control"  placeholder="Contraseña"  showHideInput #passwordSignup/> 
-                            <i matSuffix
-                            class="material-icons"
-                            showHideTrigger="password"
-                            [showHideStatus]="{ materialIcon: true, id: 'password' }"></i>
-                        </div>
-                        <button class="btn btn-block" (click)="onSignin(emailSignup.value,passwordSignup.value)">Iniciar sesión</button>
-                    </form>
-                </div>
+    <div class="login">
+        <img src="assets/iconos/LOGO3.png" width="400px" alt="logo"/>
+        <form>
+            <div class="form-group">
+                <input type="text" name="email" class="form-control" placeholder="Nombre de Usuario"  #emailSignup />
             </div>
-        </div>
+            <div class="form-group">
+                <input type="password"  id="password" class="form-control"  placeholder="Contraseña"  showHideInput #passwordSignup/> 
+                <i matSuffix
+                    class="material-icons"
+                    showHideTrigger="password"
+                    [showHideStatus]="{ materialIcon: true, id: 'password' }"></i>
+                </div>
+            <button class="btn btn-block" (click)="onSignin(emailSignup.value,passwordSignup.value)">Iniciar sesión</button>
+        </form>
     </div>
 </div>
 
@@ -39,19 +32,18 @@
             <app-menu></app-menu>
         </div>
     </div>
-
-
-<div class="page-content" id="content">
-    <div id="header">
-            <a class="nav-link" routerLink="/"><img id="logo" src="assets/iconos/logo.png" alt="logo" width="220" height="25"></a>
+    
+    
+    <div class="page-content" id="content">
+        <div id="header">
+            <a class="nav-link" routerLink="/">
+                <img id="logo" src="assets/iconos/logo.png" alt="logo" width="220" height="25">
+            </a>
             <a class="nav-link" routerLink="/chat">
                 <img class="img-chat" src="./assets/iconos/chat_activo.png" >
             </a>
             <button class="logout"  id="cerrar"(click)="logout()">Cerrar sesión</button>
-
+        </div>
+        <router-outlet></router-outlet>
     </div>
-
-    
-
-    <router-outlet></router-outlet>
 </div>

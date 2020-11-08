@@ -18,13 +18,9 @@
   }
 
 #informationAdmin{
-    text-align: center;
-
-} 
-
-#informationAdmin{
     background-color:  #E5242F;
     color:white;
+    text-align: center;
 }
 
 #header{
@@ -39,6 +35,7 @@
     margin-left: 25px;
 }
 
+
 .img-chat{
     height: 1.5em;
     position: absolute;
@@ -48,9 +45,38 @@
 }
 
 
-.row{
-    margin:80px;
+.login{
+    margin-top: 100px;
+    margin-left: 32%;
     text-align: center;
+    width: 500px;
+}
+
+.form-group{
+    margin-top: 40px;
+}
+
+.form-group  input{
+    border-radius: 0px;
+    border-bottom-color: #60605F;
+    border-bottom-width: 2px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+
+form button{
+    margin-top: 70px;
+    text-transform: uppercase;
+    background-color: #E5242F;
+    color:white;
+    height: 58px;
+    border-radius: 0px;
+    font-family: sans-serif;  
+
 }
 
 .logout{
@@ -60,25 +86,12 @@
     position: absolute;
     right:2em;
     top: 3em;
-
-}
-/*
-button{
-    background-color: #E5242F;
-    color:white;
-}
-
-button:hover{
-    background-color: #E5242F;
+    font-size: 14px;
 }
 
 
-
-
-#cerrar{
-    margin-left: 650px;
-    letter-spacing: 2px;
-    background-color: Transparent;
-    border: none;
-}*/
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #87868A;
+    opacity: 1; /* Firefox */
+    font-size: 14px;
+  }

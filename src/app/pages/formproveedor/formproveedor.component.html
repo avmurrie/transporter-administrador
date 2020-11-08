@@ -8,25 +8,25 @@
       <div class="izquierda">
         <div class="container">
           <h5>Correo electrónico</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="proveedor.emailDriver" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
         <div class="container">
           <h5>Cédula</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="proveedor.ciDriver" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
        <div class="container">
         <h5>Nombre</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="proveedor.nameDriver" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
         <div class="container">
           <h5>Apellidos</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="proveedor.lnameDriver" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
@@ -43,7 +43,7 @@
       <div class="derecha">
         <div class="container">
           <h5>Sexo</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <mat-select [(ngModel)]="proveedor.sexDriver"  [ngModelOptions]="{standalone: true}" required>
               <mat-option value="hombre">Hombre</mat-option>
               <mat-option value="mujer">Mujer</mat-option>
@@ -52,23 +52,23 @@
         </div>
         <div class="container">
           <h5>Dirección</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="proveedor.addressDriver" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>        
         </div>
         <div class="container">
           <h5>Teléfono</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="proveedor.phoneDriver" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>        
         </div>
         <div class="container">
-          <h5>Cédula (foto)</h5>
-          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadCedula($event)" required>
+          <h5>Cédula (foto)</h5>          
+          <input class="getFile" type="file" accept=".png, .jpg, .jpeg" (change)="uploadCedula($event)" required>
         </div>
         <div class="container">
           <h5>Licencia (foto)</h5>
-          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadLicencia($event)" required>
+          <input class="getFile" type="file" accept=".png, .jpg, .jpeg" (change)="uploadLicencia($event)" required>
         </div>
       </div>
 
@@ -86,31 +86,31 @@
       <div class="izquierda">
         <div class="container">
           <h5>Placa</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput  type="text" [(ngModel)]="vehiculo.plateVehicle" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
         <div class="container">
           <h5>Marca</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="vehiculo.brandVehicle" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
         <div class="container">
           <h5>Modelo</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="vehiculo.modelVehicle" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
         <div class="container">
           <h5>Año</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="vehiculo.yearVehicle" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
         <div class="container">
           <h5>Color</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <input matInput type="text" [(ngModel)]="vehiculo.colorVehicle" [ngModelOptions]="{standalone: true}" required>
           </mat-form-field>
         </div>
@@ -120,19 +120,19 @@
       <div class="derecha">
         <div class="container">
           <h5>Placa (foto)</h5>
-          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadPlaca($event)" required>
+          <input class="getFile" type="file" accept=".png, .jpg, .jpeg" (change)="uploadPlaca($event)" required>
         </div>
         <div class="container">
           <h5>Matrícula (foto)</h5>
-          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadMatricula($event)" required>
+          <input class="getFile" type="file" accept=".png, .jpg, .jpeg" (change)="uploadMatricula($event)" required>
         </div>
         <div class="container">
           <h5>Vehículo (foto)</h5>
-          <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadVehiculo($event)" required>
+          <input  class="getFile" type="file" accept=".png, .jpg, .jpeg" (change)="uploadVehiculo($event)" required>
         </div>
         <div class="container">
           <h5>Servicio</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <mat-select required >
               <mat-option value="mudanza">Mudanza</mat-option>
             </mat-select>
@@ -140,7 +140,7 @@
         </div>
         <div class="container">
           <h5>Tipo de vehículo</h5>
-          <mat-form-field appearance="outline">
+          <mat-form-field appearance="fill">
             <mat-select [(ngModel)]="vehiculo.typeVehicle"  [ngModelOptions]="{standalone: true}" required>
               <mat-option value="camion">Camión</mat-option>
               <mat-option value="camioneta">Camioneta</mat-option>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { Proveedor } from 'src/app/models/proveedor';
 import {Vehiculo} from 'src/app/models/vehiculo';
@@ -18,8 +18,10 @@ import { Observable } from 'rxjs';
   }]
 })
 export class FormproveedorComponent implements OnInit {
-  firstFormGroup: FormGroup;
+ firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  isLinear = true;
+
   porcentaje: Observable<number>;
   url:Observable<string>;
   proSave:any=[];
@@ -40,6 +42,7 @@ export class FormproveedorComponent implements OnInit {
     userDriver:'',
     companyDriver:''
   };
+
 
   vehiculo:Vehiculo={
     idVehicle:'',
@@ -64,16 +67,43 @@ export class FormproveedorComponent implements OnInit {
     private storage: AngularFireStorage
    ) { }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
-      email:[Validators.required, Validators.minLength(5)],
+      emailDriver:['',[Validators.required, Validators.email]],
+      ciDriver:['',[Validators.required, Validators.pattern( /^[0-9]{10}$/)]],
+      nameDriver:['',[Validators.required, Validators.pattern(/[A-Za-z]{1,32}$/)]],
+      lnameDriver:['',[Validators.required, Validators.pattern(/[A-Za-z]{1,32}$/)]],
+      birthdateDriver:['',Validators.required],
+      sexDriver:['',Validators.required],
+      addressDriver:['',[Validators.required, Validators.pattern(/[A-Za-z]{1,32}$/)]],
+      phoneDriver:['',[Validators.required, Validators.pattern( /^[0-9]{10}$/)]],
+      cipictureDriver:['',Validators.required],
+      licenceDriver:['',Validators.required],
+      stateDriver:true,
+      rateDriver:0,
+      activeDriver:true,
+      userDriver:'',
+      companyDriver:''
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      plateVehicle:['',[Validators.required, Validators.pattern(/[A-Za-z]{3}[0-9]{4}$/)]],
+      brandVehicle:['',Validators.required],
+      modelVehicle:['',Validators.required],
+      yearVehicle:['',[Validators.required, Validators.pattern( /^[1-2][0-9]{3}$/)]],
+      colorVehicle:['',[Validators.required, Validators.pattern(/[A-Za-z]{1,10}$/)]],
+      plpictureVehicle:['',Validators.required],
+      registrationVehicle:['',Validators.required],
+      pictureVehicle:['',Validators.required],
+      typeServiceVehicle:1,
+      typeVehicle:['',Validators.required],
+      userVehicle:'',
     });
   }
 
+
   guardarProveedor(){
+    this.proveedor=this.firstFormGroup.value;
+    this.vehiculo=this.secondFormGroup.value;
     console.log(this.proveedor);
     console.log(this.vehiculo);
     this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
@@ -100,68 +130,50 @@ export class FormproveedorComponent implements OnInit {
         console.log("proveedor agregado");
       })
     })
-   /* this.proveedorServicio.saveProveedor(this.proveedor).subscribe(
-      res=>{
-        console.log(res);
-        this.proSave=res;
-        this.vehiculo.userVehicle=this.proSave.idDriver;
-        this.vehiculoServicio.guardarVehiculo(this.vehiculo).subscribe(
-        res=>{
-          console.log(res);
-        },
-        err=>{
-          console.log(err);
-        }
-      )
-    },
-      err=>{console.log(err)});
-    alert("Proveedor agregado");*/
+
     .catch((e)=>{
       alert(e);  
     })
 }
 
-  async uploadCedula(e)  {
-  //  console.log('subir',e.target.files[0]);
+   async uploadCedula(e) {
     const file=e.target.files[0];
     const filePath=`proveedores/cedula_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
-    (await task).ref.getDownloadURL().then(url=>{this.proveedor.cipictureDriver=url});
+    (await task).ref.getDownloadURL().then(url=>{this.firstFormGroup.patchValue({cipictureDriver:url})});
   }
 
   async uploadLicencia(e)  {
-    //console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`proveedores/licencia_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
-    (await task).ref.getDownloadURL().then(url=>{this.proveedor.licenceDriver=url});
+    (await task).ref.getDownloadURL().then(url=>{this.firstFormGroup.patchValue({licenceDriver:url})});
   }
 
   async uploadPlaca(e)  {
-    //console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`vehiculo/placa_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
-    (await task).ref.getDownloadURL().then(url=>{this.vehiculo.plpictureVehicle=url});
+    (await task).ref.getDownloadURL().then(url=>{this.secondFormGroup.patchValue({plpictureVehicle:url})});
   }
+
   async uploadMatricula(e)  {
-   // console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`vehiculo/matricula_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
-    (await task).ref.getDownloadURL().then(url=>{this.vehiculo.registrationVehicle=url});
+    (await task).ref.getDownloadURL().then(url=>{this.secondFormGroup.patchValue({registrationVehicle:url})});
   }
+
   async uploadVehiculo(e)  {
-   // console.log('subir',e.target.files[0]);
     const file=e.target.files[0];
     const filePath=`vehiculo/vehiculo_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
-    (await task).ref.getDownloadURL().then(url=>{this.vehiculo.pictureVehicle=url});
+    (await task).ref.getDownloadURL().then(url=>{this.secondFormGroup.patchValue({pictureVehicle:url})});
   }
 
 }

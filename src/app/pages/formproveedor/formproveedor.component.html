@@ -148,7 +148,7 @@
     
       <div>
         <button mat-button matStepperPrevious>Atrás</button>
-      <button mat-button  [mat-dialog-close]="true" (click)="guardarProveedor()">Agregar</button>
+      <button mat-button [disabled]="!secondFormGroup.valid" [mat-dialog-close]="true" (click)="guardarProveedor()">Agregar</button>
      
     </div>
     </form>

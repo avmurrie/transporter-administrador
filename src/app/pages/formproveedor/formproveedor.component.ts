@@ -102,6 +102,7 @@ export class FormproveedorComponent implements OnInit {
 
 
   guardarProveedor(){
+    if(this.secondFormGroup.valid){
     this.proveedor=this.firstFormGroup.value;
     this.vehiculo=this.secondFormGroup.value;
     console.log(this.proveedor);
@@ -134,6 +135,10 @@ export class FormproveedorComponent implements OnInit {
     .catch((e)=>{
       alert(e);  
     })
+  }
+  else{
+    alert("Registro incompleto");
+  }
 }
 
    async uploadCedula(e) {

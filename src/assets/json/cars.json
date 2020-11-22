@@ -1,0 +1,14 @@
+[
+    {
+        "marca" : "Chevrolet", 
+        "modelo" : [
+                    "Dmax"
+                    ]   
+    },
+    {
+        "marca" : "Toyota", 
+        "modelo" : [
+                    "Hilux"
+                    ]
+    }
+]

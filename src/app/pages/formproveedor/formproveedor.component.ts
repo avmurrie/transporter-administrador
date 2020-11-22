@@ -8,6 +8,8 @@ import {VehiculoService} from '../../services/vehiculo.service';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {FirebaseServicioService} from '../../services/firebase-servicio.service';
 import { Observable } from 'rxjs';
+import cars from '../../../assets/json/cars.json';
+
 
 @Component({
   selector: 'app-formproveedor',
@@ -21,6 +23,7 @@ export class FormproveedorComponent implements OnInit {
  firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isLinear = true;
+  public carsList:{marca:string,modelo:string[]}[]=cars;
 
   porcentaje: Observable<number>;
   url:Observable<string>;
@@ -107,7 +110,7 @@ export class FormproveedorComponent implements OnInit {
     this.vehiculo=this.secondFormGroup.value;
     console.log(this.proveedor);
     console.log(this.vehiculo);
-    this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
+    /*this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
     .then((value)=>{
       console.log("valor"+value);
       this.firebaseServicio.sendPasswordResetEmail(this.proveedor.emailDriver)
@@ -128,13 +131,12 @@ export class FormproveedorComponent implements OnInit {
         },
           err=>{console.log(err)});
         alert("Proveedor agregado");
-        console.log("proveedor agregado");
       })
     })
 
     .catch((e)=>{
       alert(e);  
-    })
+    })*/
   }
   else{
     alert("Registro incompleto");

@@ -1,6 +1,6 @@
 <h1>AGREGAR PROVEEDOR</h1>
 
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+<mat-horizontal-stepper  [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup" >
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Información del proveedor</ng-template>
@@ -89,14 +89,24 @@
         </div>
         <div class="container">
           <h5>Marca</h5>
-          <mat-form-field appearance="fill">
+         <!-- <mat-form-field appearance="fill">
             <input matInput type="text" formControlName="brandVehicle" required> 
+          </mat-form-field>-->
+          <mat-form-field appearance="fill">
+            <mat-select formControlName="brandVehicle">
+              <mat-option *ngFor="let item of carsList" value={{item.marca}}>{{item.marca}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="container">
           <h5>Modelo</h5>
-          <mat-form-field appearance="fill">
+          <!--<mat-form-field appearance="fill">
             <input matInput type="text" formControlName="modelVehicle" required> 
+          </mat-form-field>-->
+          <mat-form-field appearance="fill">
+            <mat-select formControlName="modelVehicle" >
+              <mat-option *ngFor="let model of carsList" value={{model.modelo}}>{{model.modelo}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="container">
@@ -125,8 +135,8 @@
         </div>
         <div class="container">
           <h5>Vehículo (foto)</h5>
-          <input  class="getFile"  type="file" accept=".png, .jpg, .jpeg" (change)="uploadVehiculo($event)" required>
-        </div>
+          <input  class="getFile"  type="file" accept=".png, .jpg, .jpeg" (change)="uploadVehiculo($event)" required>   
+         </div>
         <div class="container">
           <h5>Servicio</h5>
           <mat-form-field appearance="fill">

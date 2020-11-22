@@ -8,17 +8,19 @@
 
     <table>
         <tr>
+            <th></th>
             <th>Apellido</th>
             <th>Nombre</th>
             <th>Estado</th>
             <th>Habilitar/Inhabilitar</th>
         </tr>
         <tr *ngFor="let proveedor of proveedores | filtro:filtroUsuario">
+            <td>□</td>
             <td>{{proveedor.lnameDriver}}</td>
             <td>{{proveedor.nameDriver}}</td>
             <td *ngIf="proveedor.stateDriver">Habilitado </td>
             <td *ngIf="!proveedor.stateDriver">Deshabilitado </td>
-            <td><mat-slide-toggle [color]="color" checked="{{proveedor.stateDriver}}" (change)="cambiar(proveedor.idDriver,$event)" ></mat-slide-toggle></td>
+            <td><mat-slide-toggle checked="{{proveedor.stateDriver}}" (change)="cambiar(proveedor.idDriver,$event)" ></mat-slide-toggle></td>
         </tr>
     </table>
 </div>

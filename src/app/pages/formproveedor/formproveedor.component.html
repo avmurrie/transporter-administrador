@@ -1,6 +1,6 @@
 <h1>AGREGAR PROVEEDOR</h1>
 
-<mat-horizontal-stepper  [linear]="isLinear" #stepper>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup" >
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Información del proveedor</ng-template>
@@ -100,14 +100,16 @@
         </div>
         <div class="container">
           <h5>Modelo</h5>
-          <!--<mat-form-field appearance="fill">
-            <input matInput type="text" formControlName="modelVehicle" required> 
-          </mat-form-field>-->
-          <mat-form-field appearance="fill">
-            <mat-select formControlName="modelVehicle" >
-              <mat-option *ngFor="let model of carsList" value={{model.modelo}}>{{model.modelo}}</mat-option>
-            </mat-select>
-          </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="modelVehicle" >
+            
+            <mat-optgroup  *ngFor="let item of carsList" [label]="item.marca"
+            [disabled]="item.disabled">
+            <mat-option *ngFor="let model of item.modelo" value={{model.value}}>{{model.value}}</mat-option>
+          </mat-optgroup>
+          
+          </mat-select>
+        </mat-form-field>
         </div>
         <div class="container">
           <h5>Año</h5>

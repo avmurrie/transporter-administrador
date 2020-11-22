@@ -23,7 +23,7 @@ export class FormproveedorComponent implements OnInit {
  firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isLinear = true;
-  public carsList:{marca:string,modelo:string[]}[]=cars;
+  public carsList:{marca: string; modelo: { value: string; }[];}[]=cars;
 
   porcentaje: Observable<number>;
   url:Observable<string>;
@@ -110,7 +110,7 @@ export class FormproveedorComponent implements OnInit {
     this.vehiculo=this.secondFormGroup.value;
     console.log(this.proveedor);
     console.log(this.vehiculo);
-    /*this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
+    this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
     .then((value)=>{
       console.log("valor"+value);
       this.firebaseServicio.sendPasswordResetEmail(this.proveedor.emailDriver)
@@ -136,7 +136,7 @@ export class FormproveedorComponent implements OnInit {
 
     .catch((e)=>{
       alert(e);  
-    })*/
+    })
   }
   else{
     alert("Registro incompleto");

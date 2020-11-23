@@ -12,9 +12,7 @@ export class FirebaseServicioService {
 
 
   async SignUp(email:string, password:string) {
-    await this.firebase.createUserWithEmailAndPassword(email, password).then(
-      (value)=>{this.sendPasswordResetEmail(email);}
-    );
+    await this.firebase.createUserWithEmailAndPassword(email, password);
   }
 
   async sendPasswordResetEmail(email:string) {

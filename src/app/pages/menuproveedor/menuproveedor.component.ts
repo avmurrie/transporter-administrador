@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ThemePalette} from '@angular/material/core';
 import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import {FormproveedorComponent} from '../formproveedor/formproveedor.component';
 import {ProveedorService} from '../../services/proveedor.service';
@@ -11,7 +10,6 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
   styleUrls: ['./menuproveedor.component.css']
 })
 export class MenuproveedorComponent implements OnInit {
-  color: ThemePalette = 'primary';
   proveedores:any=[]; //ARREGLO DE PROVEEDORES, ESTA SE COMUNICA CON EL HTML
   proveedor:any=[];
   isChecked = true;
@@ -24,7 +22,6 @@ export class MenuproveedorComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerProveedores();
-   
   }
   
   openDialog() {
@@ -32,8 +29,8 @@ export class MenuproveedorComponent implements OnInit {
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;
-    dialogConfig.height='95%';
-    dialogConfig.width='60%'
+    dialogConfig.height='91%';
+    dialogConfig.width='50%'
     const dialogRef =  this.dialog.open(FormproveedorComponent, dialogConfig);
   }
 

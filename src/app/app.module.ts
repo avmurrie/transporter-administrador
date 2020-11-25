@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormproveedorComponent } from './pages/formproveedor/formproveedor.component';
+import {FormservicioComponent} from './pages/formservicio/formservicio.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import {CdkStepperModule} from '@angular/cdk/stepper';
@@ -41,6 +42,7 @@ import {ChatService} from './services/chat.service';
   declarations: [
     AppComponent,
     FormproveedorComponent,
+    FormservicioComponent,
     MenuComponent,
     MenuproveedorComponent,
     MenuusuarioComponent,

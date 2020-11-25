@@ -53,7 +53,7 @@ export class EmpresaService {
     return this.http.get(`${this.API_URI}/typeService/${id}/`);
   }
 
-  createServicios(servicio:any){
+  createServicio(servicio:any){
     return this.http.post(`${this.API_URI}/typeService/`,servicio);
   }
 

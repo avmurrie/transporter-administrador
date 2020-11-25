@@ -1,1 +1,20 @@
-<p>formservicio works!</p>
+<h2>Crear nuevo servicio</h2>
+<form [formGroup]="firstFormGroup" (ngSubmit)="save($event)">
+    <div class="container">
+        <h5>Nombre</h5>
+         <input  type="text" formControlName="nombre" >
+    </div>
+    <div class="container">
+        <h5>Descripción</h5>
+        <textarea cols="30" rows="10" formControlName="descripcion" ></textarea>
+    </div>
+        
+    <div class="row">
+        <div>
+            <button>Cancerlar</button>
+        </div>
+        <div>
+            <button  [disabled]="!firstFormGroup.valid" type="submit">Guardar</button>
+        </div>
+    </div>
+</form>

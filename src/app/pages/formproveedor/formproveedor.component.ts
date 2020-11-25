@@ -79,7 +79,7 @@ export class FormproveedorComponent implements OnInit {
       birthdateDriver:['',Validators.required],
       sexDriver:['',Validators.required],
       addressDriver:['',[Validators.required, Validators.pattern(/[A-Za-z]{1,32}$/)]],
-      phoneDriver:['',[Validators.required, Validators.pattern( /^[0-9]{10}$/)]],
+      phoneDriver:['',[Validators.required, Validators.pattern( /^[0-9]{1,10}$/)]],
       cipictureDriver:['',Validators.required],
       licenceDriver:['',Validators.required],
       stateDriver:true,

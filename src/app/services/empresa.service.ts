@@ -22,4 +22,47 @@ export class EmpresaService {
     const id=2;
     return this.http.put(`${this.API_URI}/police/${id}/`,politicaEditada);
   }
+
+  //METODOS PARA LAS TARIFAS DE LA EMPRESA
+  getTarifas(){
+    return this.http.get(`${this.API_URI}/fare/`);
+  }
+
+  getTarifa(id:number){
+    return this.http.get(`${this.API_URI}/fare/${id}/`);
+  }
+
+  createTarifa(tarifa:any){
+    return this.http.post(`${this.API_URI}/fare/`,tarifa);
+  }
+
+  editTarifa(tarifa:any, id:number){
+    return this.http.put(`${this.API_URI}/fare/${id}/`,tarifa);
+  }
+
+  deleteTarifa(id:number){
+    return this.http.delete(`${this.API_URI}/fare/${id}/`);
+  }
+
+  //METODOS PARA LAS SERVICIO DE LA EMPRESA
+  getServicios(){
+    return this.http.get(`${this.API_URI}/typeService/`);
+  }
+
+  getServicio(id:number){
+    return this.http.get(`${this.API_URI}/typeService/${id}/`);
+  }
+
+  createServicios(servicio:any){
+    return this.http.post(`${this.API_URI}/typeService/`,servicio);
+  }
+
+  editServicio(servicio:any, id:number){
+    return this.http.put(`${this.API_URI}/typeService/${id}/`,servicio);
+  }
+
+  deleteServicio(id:number){
+    return this.http.delete(`${this.API_URI}/typeService/${id}/`);
+  }
+
 }

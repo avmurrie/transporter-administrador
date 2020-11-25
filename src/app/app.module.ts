@@ -38,6 +38,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
 import {ChatService} from './services/chat.service';
+import { FormtarifasComponent } from './pages/formtarifas/formtarifas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import {ChatService} from './services/chat.service';
     LoginComponent,
     FiltroPipe,
     DashboardComponent,
+    FormtarifasComponent,
     
 
   ],

@@ -1,12 +1,22 @@
-<h2>Información del servicio</h2>
+<h2>Información de la tarifa</h2>
 <form [formGroup]="firstFormGroup" (ngSubmit)="save($event)">
     <div class="container">
         <h5>Nombre</h5>
          <input  type="text" formControlName="nombre" >
     </div>
     <div class="container">
-        <h5>Descripción</h5>
-        <textarea cols="30" rows="10" formControlName="descripcion" ></textarea>
+        <h5>Servicio</h5>
+        <input  type="text" formControlName="servicio" >
+    </div>
+    <div class="container">
+        <h5>Precio/KM</h5>
+        <div class="row">
+            <input type="number" formControlName="minKM"/>
+            <p>km - </p>
+            <input type="number" formControlName="maxKM"/>
+            <p>km $</p>
+            <input type="number" formControlName="precio"/>
+        </div>
     </div>
         
     <div class="row">

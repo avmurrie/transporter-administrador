@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import {FormservicioComponent} from '../formservicio/formservicio.component';
+import {FormtarifasComponent} from '../formtarifas/formtarifas.component';
 import {EmpresaService} from '../../services/empresa.service';
 
 @Component({
@@ -48,13 +49,22 @@ export class EmpresaComponent implements OnInit {
   }
 
   openFormServicio() {
-     const dialogConfig=new MatDialogConfig();
-     dialogConfig.disableClose=false;
-     dialogConfig.autoFocus=true;
-     dialogConfig.height='91%';
-     dialogConfig.width='50%'
-     const dialogRef =  this.dialog.open(FormservicioComponent, dialogConfig);
-   }
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.height='91%';
+    dialogConfig.width='50%'
+    const dialogRef =  this.dialog.open(FormservicioComponent, dialogConfig);
+  }
+
+  openFormTarifa(){
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.height='91%';
+    dialogConfig.width='50%'
+    const dialogRef =  this.dialog.open(FormtarifasComponent, dialogConfig);
+  }
 
 
 }

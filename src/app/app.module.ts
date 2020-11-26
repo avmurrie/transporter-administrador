@@ -32,7 +32,7 @@ import { FiltroPipe } from './services/filtro.pipe';
 import { AuthService } from '../app/services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {ShowHidePasswordModule} from 'ngx-show-hide-password';
-
+import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -69,6 +69,7 @@ import { FormtarifasComponent } from './pages/formtarifas/formtarifas.component'
     CdkStepperModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatTabsModule,

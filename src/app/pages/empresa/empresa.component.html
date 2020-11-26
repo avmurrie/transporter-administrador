@@ -17,23 +17,24 @@
                 <input class="form-control my-0 py-1 red-border search" type="text"  name="filtroUsuario" placeholder="Buscar">
                 <img class="input-img" src="./assets/iconos/buscar.png">
             </div>
-<!--        <tr *ngFor="let proveedor of proveedores | filtro:filtroUsuario">
--->
-            <div class="modal-dialog" role="document" *ngFor="let servicio of servicios">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">{{servicio.nameTypeService}}</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>{{servicio.descriptionTypeService}}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Modificar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="eliminarServicio(servicio.idTypeService)">Eliminar</button>
-                    </div>
+            <mat-card>
+            <mat-card-content>
+                <div class="container">
+                  <table class="table">
+                    <thead>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                    </thead>
+                    <tr *ngFor="let servicio of servicios">
+                      <td>{{servicio.nameTypeService}}</td>
+                      <td>{{servicio.descriptionTypeService}}</td>
+                      <td><button (click)="editarFormServicio(servicio)">Editar</button></td>
+                      <td><button (click)="eliminarServicio(servicio.idTypeService)">Eliminar</button></td>           
+                    </tr>
+                  </table>
                 </div>
-            </div>
-
+              </mat-card-content>
+            </mat-card>
         </mat-tab>
         
         <mat-tab label="TARTIFAS">

@@ -49,7 +49,7 @@ export class EmpresaService {
     return this.http.get(`${this.API_URI}/typeservice/`);
   }
 
-  getServicio(id:number){
+  getServicio(id:string){
     return this.http.get(`${this.API_URI}/typeservice/${id}/`);
   }
 

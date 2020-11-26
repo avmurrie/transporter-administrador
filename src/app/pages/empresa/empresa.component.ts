@@ -73,7 +73,7 @@ export class EmpresaComponent implements OnInit {
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;
     dialogConfig.height='91%';
-    dialogConfig.width='50%'
+    dialogConfig.width='50%';
     const dialogRef =  this.dialog.open(FormservicioComponent, dialogConfig);
   }
 
@@ -82,8 +82,26 @@ export class EmpresaComponent implements OnInit {
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;
     dialogConfig.height='91%';
-    dialogConfig.width='50%'
+    dialogConfig.width='50%';
     const dialogRef =  this.dialog.open(FormtarifasComponent, dialogConfig);
+  }
+
+  editarFormServicio(servicio:any) {
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.height='91%';
+    dialogConfig.width='50%';
+    const dialogRef =  this.dialog.open(FormservicioComponent,
+      {
+        width:'50%',
+        data:{
+          id:servicio.idTypeService,
+          nameTypeService:servicio.nameTypeService,
+          descriptionTypeService:servicio.descriptionTypeService
+        }
+      }
+    );
   }
 
 

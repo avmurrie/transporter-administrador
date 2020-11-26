@@ -1,8 +1,8 @@
 <h2>Información del servicio</h2>
-<form [formGroup]="firstFormGroup" (ngSubmit)="save($event)">
+<form [formGroup]="firstFormGroup" (ngSubmit)="edit($event)">
     <div class="container">
         <h5>Nombre</h5>
-         <input  type="text" formControlName="nameTypeService" >
+         <input type="text" formControlName="nameTypeService" >
     </div>
     <div class="container">
         <h5>Descripción</h5>

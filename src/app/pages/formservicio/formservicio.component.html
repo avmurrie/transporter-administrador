@@ -2,19 +2,19 @@
 <form [formGroup]="firstFormGroup" (ngSubmit)="save($event)">
     <div class="container">
         <h5>Nombre</h5>
-         <input  type="text" formControlName="nombre" >
+         <input  type="text" formControlName="nameTypeService" >
     </div>
     <div class="container">
         <h5>Descripción</h5>
-        <textarea cols="30" rows="10" formControlName="descripcion" ></textarea>
+        <textarea cols="30" rows="10" formControlName="descriptionTypeService" ></textarea>
     </div>
         
     <div class="row">
         <div>
-            <button>Cancerlar</button>
+            <button [mat-dialog-close]="true">Cancerlar</button>
         </div>
         <div>
-            <button  [disabled]="!firstFormGroup.valid" type="submit">Guardar</button>
+            <button [mat-dialog-close]="true" [disabled]="!firstFormGroup.valid" type="submit">Guardar</button>
         </div>
     </div>
 </form>

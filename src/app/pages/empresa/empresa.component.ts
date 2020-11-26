@@ -12,6 +12,8 @@ import {EmpresaService} from '../../services/empresa.service';
 export class EmpresaComponent implements OnInit {
   politica:any=[];
   edit:any=[];
+  servicios:any=[];
+  servicio:any=[];
   constructor(
     private empresaServicio:EmpresaService,
     private dialog: MatDialog,
@@ -20,6 +22,7 @@ export class EmpresaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarPolitica();
+    this.obtenerServicios();
   }
 
   cargarPolitica(){
@@ -46,6 +49,23 @@ export class EmpresaComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  obtenerServicios(){
+    this.empresaServicio.getServicios().subscribe(
+      res=>{this.servicios=res},
+        err=>console.log(err)
+      )
+  }
+
+  eliminarServicio(id:string){
+    this.empresaServicio.deleteServicio(id).subscribe(
+      res=>{
+        console.log("respuesta eliminar servicio"+res);
+        this.obtenerServicios();
+      },
+      err=>console.log(err)
+    );
   }
 
   openFormServicio() {

@@ -3,8 +3,8 @@ export interface Empresa{
 }
 
 export interface Servicio{
-    nombre?:string;
-    descripcion?:string;
+    nameTypeService?:string;
+    descriptionTypeService?:string;
 }
 
 export interface Tarifa{

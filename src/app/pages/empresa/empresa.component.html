@@ -4,21 +4,36 @@
 
     <mat-tab-group dynamicHeight class="empresa">
         <mat-tab label="POLÍTICAS"> 
-            <button (click)="editarPolitica()">Editar</button>
+            <button class="btn-editar" (click)="editarPolitica()">Editar</button>
             <div class="politicas">
                 <textarea matInput [(ngModel)]="politica.descriptionPolice" ></textarea>
             </div>
         </mat-tab>
 
         <mat-tab label="SERVICIOS">
-            <form>
-                <h5>INFORMACÓN DE LOS SERVICIOS</h5>
-                <div class="input-group md-form form-sm form-2 pl-0">
-                    <a (click)="openFormServicio()"><img src="assets/iconos/agregar.png" alt="agregar"  width="35" height="35"></a>
-                    <input class="form-control my-0 py-1 red-border search" type="text"  name="filtroUsuario" placeholder="Buscar">
-                    <img class="input-img" src="./assets/iconos/buscar.png">
+            <h5>INFORMACÓN DE LOS SERVICIOS</h5>
+            <div class="input-group md-form form-sm form-2 pl-0">
+                <a (click)="openFormServicio()"><img src="assets/iconos/agregar.png" alt="agregar"  width="35" height="35"></a>
+                <input class="form-control my-0 py-1 red-border search" type="text"  name="filtroUsuario" placeholder="Buscar">
+                <img class="input-img" src="./assets/iconos/buscar.png">
+            </div>
+<!--        <tr *ngFor="let proveedor of proveedores | filtro:filtroUsuario">
+-->
+            <div class="modal-dialog" role="document" *ngFor="let servicio of servicios">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{servicio.nameTypeService}}</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{servicio.descriptionTypeService}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Modificar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="eliminarServicio(servicio.idTypeService)">Eliminar</button>
+                    </div>
                 </div>
-            </form>
+            </div>
+
         </mat-tab>
         
         <mat-tab label="TARTIFAS">

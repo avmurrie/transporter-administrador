@@ -11,8 +11,8 @@ import {Servicio} from '../../models/empresa';
 export class FormservicioComponent implements OnInit {
   firstFormGroup: FormGroup;
   servicio:Servicio={
-    nombre:'',
-    descripcion:''
+    nameTypeService:'',
+    descriptionTypeService:''
   }
 
   constructor(
@@ -27,8 +27,8 @@ export class FormservicioComponent implements OnInit {
 
   private buildForm(){
     this.firstFormGroup = this._formBuilder.group({
-      nombre: ['',Validators.required],
-      descripcion: ['',Validators.required]
+      nameTypeService: ['',Validators.required],
+      descriptionTypeService: ['',Validators.required]
     });
   };
 
@@ -37,12 +37,14 @@ export class FormservicioComponent implements OnInit {
     if(this.firstFormGroup.valid){
       this.servicio=this.firstFormGroup.value;
       console.log(this.servicio);
-     /* this.empresaService.createServicio(this.servicio)
-        .subscribe(
-          value=>
-          {console.log("valor"+ value);
+     this.empresaService.createServicio(this.servicio)
+      .subscribe(
+        value=>
+        {
+          console.log("valor"+ value);
           alert("Servicio agregado");
-          });*/
+        }
+      );
     }
   }
 

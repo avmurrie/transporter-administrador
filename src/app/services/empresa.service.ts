@@ -46,23 +46,23 @@ export class EmpresaService {
 
   //METODOS PARA LAS SERVICIO DE LA EMPRESA
   getServicios(){
-    return this.http.get(`${this.API_URI}/typeService/`);
+    return this.http.get(`${this.API_URI}/typeservice/`);
   }
 
   getServicio(id:number){
-    return this.http.get(`${this.API_URI}/typeService/${id}/`);
+    return this.http.get(`${this.API_URI}/typeservice/${id}/`);
   }
 
   createServicio(servicio:any){
-    return this.http.post(`${this.API_URI}/typeService/`,servicio);
+    return this.http.post(`${this.API_URI}/typeservice/`,servicio);
   }
 
   editServicio(servicio:any, id:number){
-    return this.http.put(`${this.API_URI}/typeService/${id}/`,servicio);
+    return this.http.put(`${this.API_URI}/typeservice/${id}/`,servicio);
   }
 
-  deleteServicio(id:number){
-    return this.http.delete(`${this.API_URI}/typeService/${id}/`);
+  deleteServicio(id:string){
+    return this.http.delete(`${this.API_URI}/typeservice/${id}/`);
   }
 
 }

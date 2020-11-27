@@ -2,13 +2,15 @@ import { Component, Inject, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmpresaService} from '../../services/empresa.service';
 import {Servicio} from '../../models/empresa';
+import { MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
-  selector: 'app-formservicio',
-  templateUrl: './formservicio.component.html',
-  styleUrls: ['./formservicio.component.css']
+  selector: 'app-formeditservicio',
+  templateUrl: './formeditservicio.component.html',
+  styleUrls: ['./formeditservicio.component.css']
 })
-export class FormservicioComponent implements OnInit {
+export class FormeditservicioComponent implements OnInit {
   firstFormGroup: FormGroup;
   servicio:Servicio={
     nameTypeService:'',
@@ -16,6 +18,8 @@ export class FormservicioComponent implements OnInit {
   }
 
   constructor(
+   public dialogRef:MatDialogRef<FormeditservicioComponent>,
+   @Inject(MAT_DIALOG_DATA) public data: any,
    private _formBuilder: FormBuilder,
     private empresaService:EmpresaService) {
    }
@@ -26,24 +30,23 @@ export class FormservicioComponent implements OnInit {
 
   private buildForm(){
     this.firstFormGroup = this._formBuilder.group({
-      nameTypeService: ['',Validators.required],
-      descriptionTypeService: ['',Validators.required]
+      nameTypeService: [this.data.nameTypeService,Validators.required],
+      descriptionTypeService: [this.data.descriptionTypeService,Validators.required]
     });
   }
 
-  save(event: Event) {
+  edit(event: Event) {
     event.preventDefault();
     if(this.firstFormGroup.valid){
       this.servicio=this.firstFormGroup.value;
-      this.empresaService.createServicio(this.servicio)
+      this.empresaService.editServicio(this.servicio,this.data.id)
       .subscribe(
         value=>
         {
-          alert("Servicio agregado");
+          alert("Servicio editado");
         }
       );
     }
   }
-
 
 }

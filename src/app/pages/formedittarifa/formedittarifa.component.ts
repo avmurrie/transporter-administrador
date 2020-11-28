@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmpresaService} from '../../services/empresa.service';
 import {Tarifa} from '../../models/empresa';
-
+import { MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-formtarifas',
-  templateUrl: './formtarifas.component.html',
-  styleUrls: ['./formtarifas.component.css']
+  selector: 'app-formedittarifa',
+  templateUrl: './formedittarifa.component.html',
+  styleUrls: ['./formedittarifa.component.css']
 })
-export class FormtarifasComponent implements OnInit {
+export class FormedittarifaComponent implements OnInit {
+
   firstFormGroup: FormGroup;
   servicios:any=[];
   tarifa:Tarifa={
@@ -22,6 +23,8 @@ export class FormtarifasComponent implements OnInit {
   }
 
   constructor(
+    public dialogRef:MatDialogRef<FormedittarifaComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private _formBuilder: FormBuilder,
     private empresaService:EmpresaService
   ) { }
@@ -33,26 +36,26 @@ export class FormtarifasComponent implements OnInit {
 
   private buildForm(){
     this.firstFormGroup = this._formBuilder.group({
-      nameFare: ['',Validators.required],
-      idTypeServiceFare: ['',Validators.required],
-      minFare:['',Validators.required],
-      maxFare:['',Validators.required],
-      priceFare:['',Validators.required],
+      nameFare: [this.data.nameFare,Validators.required],
+      idTypeServiceFare: [this.data.idServicio,Validators.required],
+      minFare:[this.data.minFare,Validators.required],
+      maxFare:[this.data.maxFare,Validators.required],
+      priceFare:[this.data.priceFare,Validators.required],
       idCompanyFare:1
     });
   };
 
-  save(event: Event) {
+  edit(event: Event) {
     event.preventDefault();
     if(this.firstFormGroup.valid){
       this.tarifa=this.firstFormGroup.value;
-      console.log(this.tarifa);
-      this.empresaService.createTarifa(this.tarifa)
-        .subscribe(
-          value=>
-          {console.log("valor"+ value);
-          alert("Tarifa agregado");
-          });
+      this.empresaService.editTarifa(this.tarifa,this.data.id)
+      .subscribe(
+        value=>
+        {
+          alert("Tarifa editada");
+        }
+      );
     }
   }
 

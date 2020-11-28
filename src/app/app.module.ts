@@ -40,6 +40,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {ChatService} from './services/chat.service';
 import { FormtarifasComponent } from './pages/formtarifas/formtarifas.component';
 import { FormeditservicioComponent } from './pages/formeditservicio/formeditservicio.component';
+import { FormedittarifaComponent } from './pages/formedittarifa/formedittarifa.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { FormeditservicioComponent } from './pages/formeditservicio/formeditserv
     DashboardComponent,
     FormtarifasComponent,
     FormeditservicioComponent,
+    FormedittarifaComponent,
     
 
   ],

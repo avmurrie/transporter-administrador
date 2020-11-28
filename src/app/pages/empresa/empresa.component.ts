@@ -3,6 +3,7 @@ import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import {FormservicioComponent} from '../formservicio/formservicio.component';
 import {FormeditservicioComponent} from '../formeditservicio/formeditservicio.component';
 import {FormtarifasComponent} from '../formtarifas/formtarifas.component';
+import {FormedittarifaComponent} from '../formedittarifa/formedittarifa.component';
 import {EmpresaService} from '../../services/empresa.service';
 
 @Component({
@@ -15,6 +16,8 @@ export class EmpresaComponent implements OnInit {
   edit:any=[];
   servicios:any=[];
   servicio:any=[];
+  tarifas:any=[];
+  tarifa:any=[];
   constructor(
     private empresaServicio:EmpresaService,
     private dialog: MatDialog,
@@ -24,6 +27,7 @@ export class EmpresaComponent implements OnInit {
   ngOnInit(): void {
     this.cargarPolitica();
     this.obtenerServicios();
+    this.obtenerTarifas();
   }
 
   cargarPolitica(){
@@ -62,7 +66,6 @@ export class EmpresaComponent implements OnInit {
   eliminarServicio(id:string){
     this.empresaServicio.deleteServicio(id).subscribe(
       res=>{
-        console.log("respuesta eliminar servicio"+res);
         this.obtenerServicios();
       },
       err=>console.log(err)
@@ -109,6 +112,49 @@ export class EmpresaComponent implements OnInit {
     dialogConfig.height='91%';
     dialogConfig.width='50%';
     const dialogRef =  this.dialog.open(FormtarifasComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.obtenerTarifas();
+    });
+  }
+
+  obtenerTarifas(){
+    this.empresaServicio.getTarifas().subscribe(
+      res=>{this.tarifas=res},
+        err=>console.log(err)
+      )
+  }
+
+  eliminarTarifa(id:string){
+    this.empresaServicio.deleteTarifa(id).subscribe(
+      res=>{
+        this.obtenerTarifas();
+      },
+      err=>console.log(err)
+    );
+  }
+
+  editarFormTarifa(tarifa:any) {
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.height='91%';
+    dialogConfig.width='50%';
+    const dialogRef =  this.dialog.open(FormedittarifaComponent,
+      {
+        width:'50%',
+        data:{
+          id:tarifa.idFare,
+          nameFare:tarifa.nameFare,
+          minFare:tarifa.minFare,
+          maxFare:tarifa.maxFare,
+          priceFare:tarifa.priceFare,
+          idServicio:tarifa.idTypeServiceFare
+        }
+      }
+    );
+    dialogRef.afterClosed().subscribe(result => {
+      this.obtenerTarifas();
+    });
   }
 
 }

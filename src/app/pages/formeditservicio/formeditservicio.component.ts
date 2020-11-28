@@ -43,7 +43,7 @@ export class FormeditservicioComponent implements OnInit {
       .subscribe(
         value=>
         {
-          alert("Servicio editado");
+          alert("Tarifa creada");
         }
       );
     }

@@ -8,9 +8,10 @@ export interface Servicio{
 }
 
 export interface Tarifa{
-    nombre?:string;
-    servicio?:string;
-    minKM?:string;
-    maxKM?:string;
-    precio?:string;
+    nameFare?:string;
+    idTypeServiceFare?:string;
+    minFare?:string;
+    maxFare?:string;
+    priceFare?:string;
+    idCompanyFare?:string
 }

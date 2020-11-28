@@ -19,6 +19,7 @@ export class EmpresaComponent implements OnInit {
   tarifas:any=[];
   tarifa:any=[];
   filtroServicio='';
+  filtroTarifa='';
 
   constructor(
     private empresaServicio:EmpresaService,

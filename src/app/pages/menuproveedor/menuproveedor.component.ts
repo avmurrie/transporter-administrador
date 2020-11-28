@@ -32,6 +32,9 @@ export class MenuproveedorComponent implements OnInit {
     dialogConfig.height='91%';
     dialogConfig.width='50%'
     const dialogRef =  this.dialog.open(FormproveedorComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.obtenerProveedores();
+    });
   }
 
   obtenerProveedores(){

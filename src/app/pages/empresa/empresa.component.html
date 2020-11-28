@@ -27,7 +27,7 @@
               <tr *ngFor="let servicio of servicios | filtroservicio:filtroServicio">
                 <td>{{servicio.nameTypeService}}</td>
                 <td>{{servicio.descriptionTypeService}}</td>
-                <td><button (click)="editarFormServicio(servicio)">Editar</button></td>
+                <td><button class="editar"(click)="editarFormServicio(servicio)">Editar</button></td>
                 <td><button (click)="eliminarServicio(servicio.idTypeService)">Eliminar</button></td>           
               </tr>
             </table>
@@ -58,7 +58,7 @@
                 <td>{{tarifa.minFare}}</td>
                 <td>{{tarifa.maxFare}}</td>
                 <td>{{tarifa.priceFare}}</td>
-                <td><button (click)="editarFormTarifa(tarifa)">Editar</button></td>
+                <td><button class="editar" (click)="editarFormTarifa(tarifa)">Editar</button></td>
                 <td><button (click)="eliminarTarifa(tarifa.idFare)">Eliminar</button></td>           
               </tr>
             </table>

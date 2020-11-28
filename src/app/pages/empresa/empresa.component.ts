@@ -79,8 +79,7 @@ export class EmpresaComponent implements OnInit {
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;
-    dialogConfig.height='91%';
-    dialogConfig.width='50%';
+    dialogConfig.width='35%';
     const dialogRef =  this.dialog.open(FormservicioComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       this.obtenerServicios();
@@ -95,7 +94,7 @@ export class EmpresaComponent implements OnInit {
     dialogConfig.width='50%';
     const dialogRef =  this.dialog.open(FormeditservicioComponent,
       {
-        width:'50%',
+        width:'35%',
         data:{
           id:servicio.idTypeService,
           nameTypeService:servicio.nameTypeService,
@@ -112,7 +111,6 @@ export class EmpresaComponent implements OnInit {
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;
-    dialogConfig.height='91%';
     dialogConfig.width='50%';
     const dialogRef =  this.dialog.open(FormtarifasComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
@@ -141,7 +139,6 @@ export class EmpresaComponent implements OnInit {
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;
     dialogConfig.height='91%';
-    dialogConfig.width='50%';
     const dialogRef =  this.dialog.open(FormedittarifaComponent,
       {
         width:'50%',

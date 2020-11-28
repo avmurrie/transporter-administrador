@@ -63,3 +63,9 @@ input{
     opacity: 1; /* Firefox */
     font-size: 12px;
 }
+
+.editar{
+    background-color: #E5242F;
+    color:#FFFFFF;
+    letter-spacing: 1px;
+}

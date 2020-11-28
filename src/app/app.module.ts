@@ -43,6 +43,7 @@ import { FormedittarifaComponent } from './pages/formedittarifa/formedittarifa.c
 import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
 import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
+import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
     FiltroservicioPipe,
     FiltroproveedorPipe,
     FiltrotarifaPipe,
+    FiltrousuarioPipe,
     
 
   ],

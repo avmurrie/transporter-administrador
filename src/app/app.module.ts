@@ -28,7 +28,6 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { ChatComponent } from './pages/chat/chat.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FiltroPipe } from './services/filtro.pipe';
 import { AuthService } from '../app/services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {ShowHidePasswordModule} from 'ngx-show-hide-password';
@@ -41,6 +40,8 @@ import {ChatService} from './services/chat.service';
 import { FormtarifasComponent } from './pages/formtarifas/formtarifas.component';
 import { FormeditservicioComponent } from './pages/formeditservicio/formeditservicio.component';
 import { FormedittarifaComponent } from './pages/formedittarifa/formedittarifa.component';
+import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
+import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,11 +53,12 @@ import { FormedittarifaComponent } from './pages/formedittarifa/formedittarifa.c
     EmpresaComponent,
     ChatComponent,
     LoginComponent,
-    FiltroPipe,
     DashboardComponent,
     FormtarifasComponent,
     FormeditservicioComponent,
     FormedittarifaComponent,
+    FiltroservicioPipe,
+    FiltroproveedorPipe,
     
 
   ],

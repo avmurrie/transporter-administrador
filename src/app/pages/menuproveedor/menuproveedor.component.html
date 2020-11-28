@@ -16,7 +16,7 @@
             <th>Estado</th>
             <th>Habilitar/Inhabilitar</th>
         </tr>
-        <tr *ngFor="let proveedor of proveedores | filtro:filtroUsuario">
+        <tr *ngFor="let proveedor of proveedores | filtroproveedor:filtroUsuario">
             <td>□</td>
             <td>{{proveedor.lnameDriver}}</td>
             <td>{{proveedor.nameDriver}}</td>

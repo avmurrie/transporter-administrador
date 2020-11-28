@@ -18,6 +18,8 @@ export class EmpresaComponent implements OnInit {
   servicio:any=[];
   tarifas:any=[];
   tarifa:any=[];
+  filtroServicio='';
+
   constructor(
     private empresaServicio:EmpresaService,
     private dialog: MatDialog,

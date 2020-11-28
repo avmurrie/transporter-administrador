@@ -40,7 +40,7 @@ export class EmpresaService {
     return this.http.put(`${this.API_URI}/fare/${id}/`,tarifa);
   }
 
-  deleteTarifa(id:number){
+  deleteTarifa(id:string){
     return this.http.delete(`${this.API_URI}/fare/${id}/`);
   }
 

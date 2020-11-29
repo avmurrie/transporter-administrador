@@ -37,6 +37,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
 import {ChatService} from './services/chat.service';
+import { ProvWebComponent } from './pages/prov-web/prov-web.component';
+import { RegistroProvComponent } from './pages/registro-prov/registro-prov.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import {ChatService} from './services/chat.service';
     LoginComponent,
     FiltroPipe,
     DashboardComponent,
+    ProvWebComponent,
+    RegistroProvComponent,
     
 
   ],

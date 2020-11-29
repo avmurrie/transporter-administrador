@@ -2,6 +2,11 @@
     margin-top: 50px;
     text-align: center;
 }
+
+.img-bg{
+    background-image: url(src/assets/images/mockup.png);
+}
+
 .card{
     width: 500px;
 }

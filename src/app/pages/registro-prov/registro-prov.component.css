@@ -1,0 +1,17 @@
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5em;
+    margin-top: 2em;
+}
+.img-bg{
+    background-image: url("../../../assets/images/fondo_web-12.png");
+    background-size: cover;
+    height: 40rem;
+    width: auto;
+    
+}
+
+#title{
+    color:cadetblue;
+}

@@ -1,3 +1,11 @@
 .img-bg{
-    background-image: url(assets/images/mockup.png);
+    background-image: url("../../../assets/images/mockup.png");
+    background-size: cover;
+    height: 38rem;
+    width: auto;
+}
+
+.menu{
+    display: flex;
+    justify-content: flex-end;
 }

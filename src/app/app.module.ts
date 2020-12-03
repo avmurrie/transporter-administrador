@@ -35,6 +35,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {ChatService} from './services/chat.service';
 import { ProvWebComponent } from './pages/prov-web/prov-web.component';
@@ -94,7 +95,8 @@ import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
     ShowHidePasswordModule ,
     MatListModule,
     MatGridListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCheckboxModule
   ],
   providers: [ProveedorService,AuthService, ChatService ],
   entryComponents:[MatDialogModule,MatSelectModule],

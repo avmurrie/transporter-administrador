@@ -6,6 +6,15 @@
     justify-content: flex-end;
     margin-right: 5em;
     margin-top: 2em;
+    
+}
+#logo{
+    height: 4em;
+    
+    display: flex;
+}
+.nav-link{
+    color:black;
 }
 .img-bg{
     background-image: url("../../../assets/images/fondo_web-12.png");
@@ -16,11 +25,15 @@
 }
 
 #title{
-    color:cadetblue;
+    color:#3a90c4;
     font-weight: bold;
+    margin-top: 1em;
+    margin-left: 3em;
 }
 mat-horizontal-stepper{
     background: transparent;
+    width: 90%;
+    margin-left: 5em;
 }
 
 mat-form-field.mat-form-field {
@@ -33,12 +46,12 @@ mat-form-field .mat-select {
 
 form{
     display: grid;
-    grid-template-columns: 33%;
-    grid-gap: 20px
+    grid-template-columns: repeat(3,33%);
+    grid-gap: 20px;
 }
 
 form div div{
-    grid-column: 1 / 2;
+    grid-column: 1 / 3;
 }
 
 .derecha{
@@ -46,12 +59,32 @@ form div div{
     grid-row: 1 / 2;
 }
 
-button{
+.termycond{
+    grid-column: 3 / 3;
+}
+
+.btnAtras{
+    position: absolute;
+    left:    0;
+    bottom:   10;
+}
+.btnReg{
     background-color: #E5242F;
     color: white;
     text-align: center;
-    text-transform: uppercase;
-    margin:10px;
+    position: relative;
+    top: 85%;  
+   margin-left: 10%;
+
+}
+
+.btnReg:disabled{
+    color: ghostwhite;
+}
+.btnSgte{
+    position: absolute;
+    right:    0;
+    bottom:   10;
 }
 
 h5{

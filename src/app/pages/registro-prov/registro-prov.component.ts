@@ -110,11 +110,11 @@ export class RegistroProvComponent implements OnInit {
     this.vehiculo=this.secondFormGroup.value;
     console.log(this.proveedor);
     console.log(this.vehiculo);
-    this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
-    .then((value)=>{
-      console.log("valor"+value);
-      this.firebaseServicio.sendPasswordResetEmail(this.proveedor.emailDriver)
-      .then(()=>{
+    //this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
+    //.then((value)=>{
+     // console.log("valor"+value);
+     // this.firebaseServicio.sendPasswordResetEmail(this.proveedor.emailDriver)
+     // .then(()=>{
         this.proveedorServicio.saveProveedor(this.proveedor).subscribe(
           res=>{
             console.log(res);
@@ -131,12 +131,12 @@ export class RegistroProvComponent implements OnInit {
         },
           err=>{console.log(err)});
         alert("Proveedor agregado");
-      })
-    })
+      //})
+    //})
 
-    .catch((e)=>{
-      alert(e);  
-    })
+    //.catch((e)=>{
+     // alert(e);  
+   // })
   }
   else{
     alert("Registro incompleto");

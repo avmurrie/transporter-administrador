@@ -1,11 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filtro'
+  name: 'filtroproveedor'
 })
-
-//ACTUALMENTE GENERA ERROR PORQUE EL ID ES NUMERO Y TOLOWERCASE SOLO FUNCIONA CON STRING
-export class FiltroPipe implements PipeTransform {
+export class FiltroproveedorPipe implements PipeTransform {
 
   transform(value: any, arg: any): any {
     if(arg==='' || arg.length<3) return value;

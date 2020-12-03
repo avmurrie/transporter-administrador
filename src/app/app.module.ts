@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormproveedorComponent } from './pages/formproveedor/formproveedor.component';
+import {FormservicioComponent} from './pages/formservicio/formservicio.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import {CdkStepperModule} from '@angular/cdk/stepper';
@@ -27,11 +28,10 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { ChatComponent } from './pages/chat/chat.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FiltroPipe } from './services/filtro.pipe';
 import { AuthService } from '../app/services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {ShowHidePasswordModule} from 'ngx-show-hide-password';
-
+import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -39,20 +39,34 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {ChatService} from './services/chat.service';
 import { ProvWebComponent } from './pages/prov-web/prov-web.component';
 import { RegistroProvComponent } from './pages/registro-prov/registro-prov.component';
+import { FormtarifasComponent } from './pages/formtarifas/formtarifas.component';
+import { FormeditservicioComponent } from './pages/formeditservicio/formeditservicio.component';
+import { FormedittarifaComponent } from './pages/formedittarifa/formedittarifa.component';
+import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
+import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
+import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
+import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     FormproveedorComponent,
+    FormservicioComponent,
     MenuComponent,
     MenuproveedorComponent,
     MenuusuarioComponent,
     EmpresaComponent,
     ChatComponent,
     LoginComponent,
-    FiltroPipe,
     DashboardComponent,
     ProvWebComponent,
     RegistroProvComponent,
+    FormtarifasComponent,
+    FormeditservicioComponent,
+    FormedittarifaComponent,
+    FiltroservicioPipe,
+    FiltroproveedorPipe,
+    FiltrotarifaPipe,
+    FiltrousuarioPipe,
     
 
   ],
@@ -69,6 +83,7 @@ import { RegistroProvComponent } from './pages/registro-prov/registro-prov.compo
     CdkStepperModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatTabsModule,

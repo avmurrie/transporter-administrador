@@ -15,3 +15,6 @@ En el directorio principal del proyecto se debe ingresar los comandos
 
 ## Página web desplegada en firebase
 > `https://transporter-careapp.web.app`
+
+## Commits integrados con pivotaltracker
+> `[#id de la HU] comentario`

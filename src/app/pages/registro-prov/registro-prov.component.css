@@ -18,15 +18,14 @@
 .nav-link{
     color:black;
 }
-.img-bg{
-    background-image: url("../../../assets/images/fondo_web-12.png");
-    background-size: cover;
-    height: 40rem;
-    width: 100%;
-    position: absolute;
-    top: 0;
 
+.img-bg{
+   background-image: url("../../../assets/images/fondo_web-12.png");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
     
+    position: fixed;
 }
 
 #title{

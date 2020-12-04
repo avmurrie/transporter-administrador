@@ -6,12 +6,14 @@
     justify-content: flex-end;
     margin-right: 5em;
     margin-top: 2em;
+
     
 }
 #logo{
-    height: 4em;
-    
-    display: flex;
+    height: 4em;    
+    display: inline;
+    position: absolute;
+    left: 3%;
 }
 .nav-link{
     color:black;
@@ -20,15 +22,19 @@
     background-image: url("../../../assets/images/fondo_web-12.png");
     background-size: cover;
     height: 40rem;
-    width: auto;
+    width: 100%;
+    position: absolute;
+    top: 0;
+
     
 }
 
 #title{
     color:#3a90c4;
     font-weight: bold;
-    margin-top: 1em;
+    margin-top: 2em;
     margin-left: 3em;
+    padding-top: 1em;
 }
 mat-horizontal-stepper{
     background: transparent;

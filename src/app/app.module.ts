@@ -71,7 +71,8 @@ import { PoliticasComponent } from './modals/politicas/politicas.component';
     FiltroproveedorPipe,
     FiltrotarifaPipe,
     FiltrousuarioPipe,
-    PoliticasComponent,   
+    PoliticasComponent,
+   
 
   ],
   imports: [

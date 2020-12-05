@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div  class="page-content">
   <h1>EMPRESA</h1>
 
@@ -10,12 +11,13 @@
     </mat-tab>
 
     <mat-tab label="SERVICIOS">
-      <h5>INFORMACÓN DE LOS SERVICIOS</h5>
+      
       <div class="input-group md-form form-sm form-2 pl-0">
         <a (click)="openFormServicio()"><img src="assets/iconos/agregar.png" alt="agregar"  width="35" height="35"></a>
         <input class="form-control my-0 py-1 red-border search" type="text"  name="filtroServicio" placeholder="Buscar" [(ngModel)]="filtroServicio">
         <img class="input-img" src="./assets/iconos/buscar.png">
       </div>
+      
       <mat-card>
         <mat-card-content>
           <div class="container">
@@ -37,7 +39,7 @@
     </mat-tab>
         
     <mat-tab label="TARTIFAS">
-      <h5>INFORMACÓN DE LOS SERVICIOS</h5>
+      
       <div class="input-group md-form form-sm form-2 pl-0">
         <a (click)="openFormTarifa()"><img src="assets/iconos/agregar.png" alt="agregar"  width="35" height="35"></a>
         <input class="form-control my-0 py-1 red-border search" type="text"  name="filtroTarifa" placeholder="Buscar" [(ngModel)]="filtroTarifa">

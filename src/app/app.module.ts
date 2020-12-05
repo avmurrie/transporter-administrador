@@ -36,6 +36,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {HistorialComponent} from './pages/historial/historial.component';
+import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
+import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
+import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
 
 
 import {ChatService} from './services/chat.service';
@@ -48,7 +52,10 @@ import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
 import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
+<<<<<<< HEAD
+=======
 import { PoliticasComponent } from './modals/politicas/politicas.component';
+>>>>>>> f89302a74bc4fff323f7a4a96c9762f086624b00
 
 @NgModule({
   declarations: [
@@ -71,8 +78,15 @@ import { PoliticasComponent } from './modals/politicas/politicas.component';
     FiltroproveedorPipe,
     FiltrotarifaPipe,
     FiltrousuarioPipe,
+<<<<<<< HEAD
+    HistorialComponent,
+    HistorialproveedorComponent,
+    HistorialclienteComponent,
+    HistorialservicioComponent,
+=======
     PoliticasComponent,
    
+>>>>>>> f89302a74bc4fff323f7a4a96c9762f086624b00
 
   ],
   imports: [

@@ -9,6 +9,11 @@ import { ProvWebComponent } from './pages/prov-web/prov-web.component';
 import { RegistroProvComponent } from './pages/registro-prov/registro-prov.component';
 import { LoginComponent } from './pages/login/login.component';
 import {FormservicioComponent} from './pages/formservicio/formservicio.component';
+import {HistorialComponent} from './pages/historial/historial.component';
+import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
+import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
+import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
+
 
 const routes: Routes = [
   {
@@ -50,7 +55,26 @@ const routes: Routes = [
   {
     path:'servicio',
     component:FormservicioComponent
+  },
+  {
+    path:'historial',
+    component:HistorialComponent
   }
+  ,
+  {
+    path:'historialproveedor',
+    component:HistorialproveedorComponent
+  }
+  ,
+  {
+    path:'historialcliente',
+    component:HistorialclienteComponent
+  },
+  {
+    path:'historialservicio',
+    component:HistorialservicioComponent
+  }
+
 ];
 
 @NgModule({

@@ -36,6 +36,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {HistorialComponent} from './pages/historial/historial.component';
+import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
+import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
+import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
 
 import {ChatService} from './services/chat.service';
 import { ProvWebComponent } from './pages/prov-web/prov-web.component';
@@ -47,6 +51,7 @@ import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
 import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +73,10 @@ import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
     FiltroproveedorPipe,
     FiltrotarifaPipe,
     FiltrousuarioPipe,
-    
+    HistorialComponent,
+    HistorialproveedorComponent,
+    HistorialclienteComponent,
+    HistorialservicioComponent,
 
   ],
   imports: [

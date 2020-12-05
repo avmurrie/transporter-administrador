@@ -9,7 +9,8 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {FirebaseServicioService} from '../../services/firebase-servicio.service';
 import { Observable } from 'rxjs';
 import cars from '../../../assets/json/cars.json';
-
+import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { PoliticasComponent } from 'src/app/modals/politicas/politicas.component';
 @Component({
   selector: 'app-registro-prov',
   templateUrl: './registro-prov.component.html',
@@ -67,7 +68,8 @@ export class RegistroProvComponent implements OnInit {
     private proveedorServicio: ProveedorService,
     private vehiculoServicio:VehiculoService,
     private firebaseServicio:FirebaseServicioService,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private dialog: MatDialog,
    ) { }
 
    ngOnInit(): void {
@@ -171,6 +173,20 @@ export class RegistroProvComponent implements OnInit {
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
     (await task).ref.getDownloadURL().then(url=>{this.secondFormGroup.patchValue({pictureVehicle:url})});
+  }
+
+
+
+  openDialogPoliticas(){
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.width='70%';
+    //dialogConfig.height='80%';
+    
+    this.dialog.open(PoliticasComponent, dialogConfig);
+    
+    
   }
 
 }

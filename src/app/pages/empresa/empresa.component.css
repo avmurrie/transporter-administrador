@@ -1,11 +1,8 @@
 *{
     font-family: sans-serif;
+    
 }
 
-.page-content {
-    margin-left: 30px;
-    margin-top: 50px;
-}
 
 div h1 {
     font-weight: bold;
@@ -25,7 +22,12 @@ textarea {
 
 .empresa{
     background-color:  #EDEEF0;
+    max-width: 1000px;
+    margin-right: 10%;
+   
+    
 }
+
 
 .btn-editar{
     margin-left: 900px;
@@ -47,17 +49,18 @@ textarea {
 input{
     background-color: #D8D9DD;
     border-radius: 5px;
+    width: 15px;
 }
 
 .input-group{
     width: 25%;
     left: 700px;
+    padding-top: 2%;
 }
 
 .input-group a{
     margin-right: 20px;
 }
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #87868A;
     opacity: 1; /* Firefox */
@@ -68,4 +71,9 @@ input{
     background-color: #E5242F;
     color:#FFFFFF;
     letter-spacing: 1px;
+    
+}
+
+mat-card{
+    margin: 2%;
 }

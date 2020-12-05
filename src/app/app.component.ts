@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Host, Output } from '@angular/core';
 import {AuthService} from '../app/services/auth.service';
 import {Admin} from '../app/models/admin';
 
@@ -9,6 +9,43 @@ import {Admin} from '../app/models/admin';
 })
 export class AppComponent {
   title = 'angular';
+  isSignedIn = false;
+  showPassword=false;
+  passwordIcon='eye';
+
+  contrasenia: string
+
+  @Output() isLogout = new EventEmitter<void>();
+  user:any;
+  email:any;
+  constructor(
+    private firebaseService: AuthService
+  ){}
+  ngOnInit(){
+    if(localStorage.getItem('user')!== null)
+    this.isSignedIn= true
+    else
+    this.isSignedIn = false
+  }
+  logout(){
+    this.isSignedIn=false;
+    this.firebaseService.logout();
+    this.isLogout.emit();
+    
+  }
+
+  iconPassword(){
+    this.showPassword=!this.showPassword;
+    if(this.passwordIcon=='eye'){
+      this.passwordIcon='eye-off';
+    }
+    else{
+      this.passwordIcon='eye';
+    }
+  }
+
+  }
+  /*title = 'angular';
   isSignedIn = false;
   showPassword=false;
   passwordIcon='eye';
@@ -54,6 +91,5 @@ export class AppComponent {
     else{
       this.passwordIcon='eye';
     }
-  }
+  }*/
 
-}

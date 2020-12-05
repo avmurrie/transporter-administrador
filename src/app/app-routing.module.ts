@@ -15,45 +15,62 @@ import {HistorialclienteComponent} from './pages/historialcliente/historialclien
 import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
 
 
+//Guard para la pantalla de login en authentication
+import { AuthGuard } from './guards/auth.guard';
+//Guard para la pantalla de login en authentication
+import { NotloginGuard } from './guards/notlogin.guard'
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
+    redirectTo: '/inicioProv',
+    pathMatch: 'full',
+    canActivate:[NotloginGuard],
+    
   },
   {
     path:'proveedor',
-    component:MenuproveedorComponent
+    component:MenuproveedorComponent,
+    canActivate: [AuthGuard],
   },
   {
     path:'usuarios',
-    component:MenuusuarioComponent
+    component:MenuusuarioComponent,
+    canActivate: [AuthGuard],
   },
   {
     path:'empresa',
-    component:EmpresaComponent
+    component:EmpresaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'chat',
-    component:ChatComponent
+    component:ChatComponent,
+    canActivate: [AuthGuard]
   },
   {  
     path:'dashboard',
-    component:DashboardComponent
+    component:DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {  
     path:'registroProv',
-    component:RegistroProvComponent
+    component:RegistroProvComponent,
+    
   },
   {  
     path:'inicioProv',
-    component:ProvWebComponent
+    component:ProvWebComponent,
+    
   },
   {  
     path:'login',
-    component:LoginComponent},
+    component:LoginComponent,
+    canActivate:[NotloginGuard],
+  },
+    
   {
     path:'servicio',
+<<<<<<< HEAD
     component:FormservicioComponent
   },
   {
@@ -64,6 +81,10 @@ const routes: Routes = [
   {
     path:'historialproveedor',
     component:HistorialproveedorComponent
+=======
+    component:FormservicioComponent,
+    canActivate: [AuthGuard]
+>>>>>>> f89302a74bc4fff323f7a4a96c9762f086624b00
   }
   ,
   {

@@ -5,6 +5,7 @@ import { Message } from 'src/app/models/message';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChatService } from 'src/app/services/chat.service';
 import {AngularFireStorage} from '@angular/fire/storage';
+import { Observable } from 'rxjs'; 
 
 @Component({
   selector: 'app-chat',
@@ -19,6 +20,8 @@ export class ChatComponent implements OnInit {
   chat:ChatRoom;
   messages:Message[]=[];
   newMsg:string='';
+  urlPhoto:string='';
+  
 
   constructor(
     public chatService: ChatService,
@@ -51,7 +54,8 @@ export class ChatComponent implements OnInit {
               from: msg.from,
               msg: msg.msg,
               myMsg: msg.from === this.authService.userApp.uid,
-              isPhoto: false
+              urlPhoto: msg.urlPhoto,
+              isPhoto:msg.isPhoto
             };
 
             console.log('Message > ', message);
@@ -75,7 +79,7 @@ export class ChatComponent implements OnInit {
     if (this.newMsg.length===0){
       return;
     }
-    this.chatService.addChatMessage(this.chat.id,this.newMsg).then(
+    this.chatService.addChatMessage(this.chat.id,this.newMsg, this.urlPhoto).then(
       () => { console.log('NMsg Enviado',this.newMsg); this.newMsg="";
         //this.newMsg = '';
         //this.content.scrollToBottom();
@@ -90,7 +94,8 @@ export class ChatComponent implements OnInit {
     const filePath=`imgChats/_${e.target.files[0].name}`;
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
-    (await task).ref.getDownloadURL();
+    (await task).ref.getDownloadURL().then(url=>{this.urlPhoto=url});
+    
   }
 
 }

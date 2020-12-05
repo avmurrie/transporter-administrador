@@ -7,6 +7,8 @@ import { ChatRoom } from '../models/chat-room';
 import { AuthService } from './auth.service';
 import * as firebase from 'firebase';
 import { Message } from '../models/message';
+//import { stringify } from 'querystring';
+//import { url } from 'inspector';
 
 @Injectable(//{
   //providedIn: 'root'
@@ -63,12 +65,19 @@ export class ChatService {
     return this.messagesCollection.valueChanges();
   }
 
-  addChatMessage(chatRoom:string,msg:string){
+  addChatMessage(chatRoom:string,msg:string, urlPhoto:string){
+    let isPhoto:boolean=false;
+    if(urlPhoto!=''){
+      isPhoto=true;
+    }
     return this.afs.collection(`/chatRoomsTest/${chatRoom}/messages`).add(
       {
         msg,
         from: this.authService.userApp.uid,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        urlPhoto,
+        isPhoto
+      
       }
     );
   }

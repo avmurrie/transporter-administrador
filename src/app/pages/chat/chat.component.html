@@ -50,6 +50,8 @@
                             <span>
                                 {{message.msg}}
                             </span>
+
+                            <img src={{message.urlPhoto}} *ngIf=message.isPhoto  class="imgChat">
                         </div>
                         <th class='time text-right'>
                             <br>
@@ -66,6 +68,7 @@
                         (keyup.enter)="sendMessage()">
                     <button class="btn-op">
                         <img class="img-op" src="./assets/iconos/adjuntar.png">
+                        <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadPhoto($event)" required>
                     </button>
                     <button class="btn-op" [disabled]='newMsg === ""' (click)='sendMessage()'>
                         <img class="img-op" src="./assets/iconos/enviar.png">

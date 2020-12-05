@@ -5,6 +5,9 @@ import {MenuusuarioComponent} from './pages/menuusuario/menuusuario.component';
 import {EmpresaComponent} from './pages/empresa/empresa.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import { ProvWebComponent } from './pages/prov-web/prov-web.component';
+import { RegistroProvComponent } from './pages/registro-prov/registro-prov.component';
+import { LoginComponent } from './pages/login/login.component';
 import {FormservicioComponent} from './pages/formservicio/formservicio.component';
 
 const routes: Routes = [
@@ -33,6 +36,17 @@ const routes: Routes = [
     path:'dashboard',
     component:DashboardComponent
   },
+  {  
+    path:'registroProv',
+    component:RegistroProvComponent
+  },
+  {  
+    path:'inicioProv',
+    component:ProvWebComponent
+  },
+  {  
+    path:'login',
+    component:LoginComponent},
   {
     path:'servicio',
     component:FormservicioComponent

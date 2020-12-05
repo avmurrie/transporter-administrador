@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth'
 import { AdminUser } from '../models/admin-user';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class AuthService {
   public currentUser:any;
 
   isLoggedIn = false
-  constructor(public firebaseAuth : AngularFireAuth) { 
+  constructor(public firebaseAuth : AngularFireAuth,
+              private router: Router) { 
     this.getUserInformation();
     this.getCurrentUser();
   }
@@ -21,7 +23,8 @@ export class AuthService {
     await this.firebaseAuth.signInWithEmailAndPassword(email,password)
     .then(res=>{
      this.isLoggedIn = true
-      localStorage.setItem('user',JSON.stringify(res.user))})
+     localStorage.setItem('user',JSON.stringify(res.user))
+     this.router.navigate(['/dashboard'])})
      .catch( err =>{
       alert(err);
     } )
@@ -31,6 +34,7 @@ export class AuthService {
     this.isLoggedIn=false;
     this.firebaseAuth.signOut();
     localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 
   getUserInformation(){

@@ -35,8 +35,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 import {ChatService} from './services/chat.service';
+import { ProvWebComponent } from './pages/prov-web/prov-web.component';
+import { RegistroProvComponent } from './pages/registro-prov/registro-prov.component';
 import { FormtarifasComponent } from './pages/formtarifas/formtarifas.component';
 import { FormeditservicioComponent } from './pages/formeditservicio/formeditservicio.component';
 import { FormedittarifaComponent } from './pages/formedittarifa/formedittarifa.component';
@@ -44,6 +48,8 @@ import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
 import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
+import { PoliticasComponent } from './modals/politicas/politicas.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +62,8 @@ import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
     ChatComponent,
     LoginComponent,
     DashboardComponent,
+    ProvWebComponent,
+    RegistroProvComponent,
     FormtarifasComponent,
     FormeditservicioComponent,
     FormedittarifaComponent,
@@ -63,7 +71,7 @@ import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
     FiltroproveedorPipe,
     FiltrotarifaPipe,
     FiltrousuarioPipe,
-    
+    PoliticasComponent,   
 
   ],
   imports: [
@@ -90,7 +98,8 @@ import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
     ShowHidePasswordModule ,
     MatListModule,
     MatGridListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCheckboxModule
   ],
   providers: [ProveedorService,AuthService, ChatService ],
   entryComponents:[MatDialogModule,MatSelectModule],

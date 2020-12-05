@@ -7,6 +7,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 15rem;
+  transition: all 0.4s;
+}
+
 .mat-slide-toggle-thumb {
     width: 18px !important;
     height: 18px !important;

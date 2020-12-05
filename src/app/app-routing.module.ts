@@ -10,46 +10,63 @@ import { RegistroProvComponent } from './pages/registro-prov/registro-prov.compo
 import { LoginComponent } from './pages/login/login.component';
 import {FormservicioComponent} from './pages/formservicio/formservicio.component';
 
+//Guard para la pantalla de login en authentication
+import { AuthGuard } from './guards/auth.guard';
+//Guard para la pantalla de login en authentication
+import { NotloginGuard } from './guards/notlogin.guard'
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
+    redirectTo: '/inicioProv',
+    pathMatch: 'full',
+    canActivate:[NotloginGuard],
+    
   },
   {
     path:'proveedor',
-    component:MenuproveedorComponent
+    component:MenuproveedorComponent,
+    canActivate: [AuthGuard],
   },
   {
     path:'usuarios',
-    component:MenuusuarioComponent
+    component:MenuusuarioComponent,
+    canActivate: [AuthGuard],
   },
   {
     path:'empresa',
-    component:EmpresaComponent
+    component:EmpresaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'chat',
-    component:ChatComponent
+    component:ChatComponent,
+    canActivate: [AuthGuard]
   },
   {  
     path:'dashboard',
-    component:DashboardComponent
+    component:DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {  
     path:'registroProv',
-    component:RegistroProvComponent
+    component:RegistroProvComponent,
+    
   },
   {  
     path:'inicioProv',
-    component:ProvWebComponent
+    component:ProvWebComponent,
+    
   },
   {  
     path:'login',
-    component:LoginComponent},
+    component:LoginComponent,
+    canActivate:[NotloginGuard],
+  },
+    
   {
     path:'servicio',
-    component:FormservicioComponent
+    component:FormservicioComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

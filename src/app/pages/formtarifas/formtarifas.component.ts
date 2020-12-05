@@ -11,10 +11,12 @@ import {Tarifa} from '../../models/empresa';
 })
 export class FormtarifasComponent implements OnInit {
   firstFormGroup: FormGroup;
+  typeService:any=[];
   servicios:any=[];
   tarifa:Tarifa={
     nameFare:'',
     idTypeServiceFare:'',
+    nameService:'',
     minFare:'',
     maxFare:'',
     priceFare:'',
@@ -30,30 +32,34 @@ export class FormtarifasComponent implements OnInit {
     this.buildForm();
     this.obtenerServicios();
   }
-//      yearVehicle:['',[Validators.required, Validators.pattern( /^[1-2][0-9]{3}$/)]],
 
-  private buildForm(){
-    this.firstFormGroup = this._formBuilder.group({
-      nameFare: ['',Validators.required],
-      idTypeServiceFare: ['',Validators.required],
-      minFare:['',Validators.required],
-      maxFare:['',Validators.required],
-      priceFare:['',Validators.required],
-      idCompanyFare:1
-    });
-  };
+private buildForm(){
+  this.firstFormGroup = this._formBuilder.group({
+    nameFare: ['',Validators.required],
+    idTypeServiceFare: ['',Validators.required],
+    minFare:['',Validators.required],
+    maxFare:['',Validators.required],
+    priceFare:['',Validators.required],
+    idCompanyFare:1
+  });
+};
 
   save(event: Event) {
     event.preventDefault();
     if(this.firstFormGroup.valid){
       this.tarifa=this.firstFormGroup.value;
-      console.log(this.tarifa);
-      this.empresaService.createTarifa(this.tarifa)
-        .subscribe(
-          value=>
-          {console.log("valor"+ value);
-          alert("Tarifa agregado");
-          });
+      this.empresaService.getServicio(this.tarifa.idTypeServiceFare).subscribe(
+        res=>{
+          this.typeService=res;
+          this.tarifa.nameService=this.typeService.nameTypeService;
+          this.empresaService.createTarifa(this.tarifa)
+          .subscribe(
+            value=>
+              {console.log("valor"+ value);
+              alert("Tarifa agregado");
+              });
+        }
+      )
     }
   }
 
@@ -63,5 +69,4 @@ export class FormtarifasComponent implements OnInit {
         err=>console.log(err)
       )
   }
-
 }

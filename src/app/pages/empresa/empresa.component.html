@@ -49,12 +49,14 @@
             <table class="table">
               <thead>
                 <th>Tarifa</th>
+                <th>Servicio</th>
                 <th>Min KM</th>
                 <th>Max KM</th>
                 <th>Precio/KM</th>
               </thead>
               <tr *ngFor="let tarifa of tarifas | filtrotarifa:filtroTarifa">
                 <td>{{tarifa.nameFare}}</td>
+                <td>{{tarifa.nameService}}</td>
                 <td>{{tarifa.minFare}}</td>
                 <td>{{tarifa.maxFare}}</td>
                 <td>{{tarifa.priceFare}}</td>

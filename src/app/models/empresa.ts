@@ -9,6 +9,7 @@ export interface Servicio{
 
 export interface Tarifa{
     nameFare?:string;
+    nameService?:string;
     idTypeServiceFare?:string;
     minFare?:string;
     maxFare?:string;

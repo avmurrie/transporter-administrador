@@ -20,6 +20,7 @@ export class EmpresaComponent implements OnInit {
   tarifa:any=[];
   filtroServicio='';
   filtroTarifa='';
+  typeService:any=[];
 
   constructor(
     private empresaServicio:EmpresaService,
@@ -155,6 +156,11 @@ export class EmpresaComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.obtenerTarifas();
     });
+  }
+
+  obtenerServicio(id:string){
+    this.typeService(id);
+    console.log("este es el servicio "+this.typeService);
   }
 
 }

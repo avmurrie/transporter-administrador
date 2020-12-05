@@ -106,3 +106,10 @@ input{
 .getFile{
     background-color: #f5f5f5;
 }
+
+.politicas{
+    color:#3a90c4;
+    border: none;
+    background: transparent;
+
+}

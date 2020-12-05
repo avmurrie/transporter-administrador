@@ -174,7 +174,9 @@
         </div>
       
         <div>
-          <mat-checkbox required class="termycond"> Acepta los términos y condiciones del servicio</mat-checkbox>
+          <mat-checkbox required class="termycond"> Acepta los 
+            <button class="politicas" (click)="openDialogPoliticas()"> términos y condiciones</button> 
+            del servicio</mat-checkbox>
           <button class="btnReg" mat-button [disabled]="!secondFormGroup.valid" [mat-dialog-close]="true"
             (click)="guardarProveedor()">REGISTRARSE</button>
       </div>

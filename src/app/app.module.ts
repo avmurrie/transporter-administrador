@@ -37,6 +37,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
+
 import {ChatService} from './services/chat.service';
 import { ProvWebComponent } from './pages/prov-web/prov-web.component';
 import { RegistroProvComponent } from './pages/registro-prov/registro-prov.component';
@@ -47,6 +48,8 @@ import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
 import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
+import { PoliticasComponent } from './modals/politicas/politicas.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +71,7 @@ import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
     FiltroproveedorPipe,
     FiltrotarifaPipe,
     FiltrousuarioPipe,
-    
+    PoliticasComponent,   
 
   ],
   imports: [

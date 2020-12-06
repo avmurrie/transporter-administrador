@@ -52,10 +52,7 @@ import { FiltroservicioPipe } from './pipes/filtroservicio.pipe';
 import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
-<<<<<<< HEAD
-=======
 import { PoliticasComponent } from './modals/politicas/politicas.component';
->>>>>>> f89302a74bc4fff323f7a4a96c9762f086624b00
 
 @NgModule({
   declarations: [
@@ -78,15 +75,12 @@ import { PoliticasComponent } from './modals/politicas/politicas.component';
     FiltroproveedorPipe,
     FiltrotarifaPipe,
     FiltrousuarioPipe,
-<<<<<<< HEAD
     HistorialComponent,
     HistorialproveedorComponent,
     HistorialclienteComponent,
     HistorialservicioComponent,
-=======
     PoliticasComponent,
    
->>>>>>> f89302a74bc4fff323f7a4a96c9762f086624b00
 
   ],
   imports: [

@@ -70,30 +70,29 @@ const routes: Routes = [
     
   {
     path:'servicio',
-<<<<<<< HEAD
-    component:FormservicioComponent
+    component:FormservicioComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'historial',
-    component:HistorialComponent
-  }
-  ,
+    component:HistorialComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path:'historialproveedor',
-    component:HistorialproveedorComponent
-=======
-    component:FormservicioComponent,
+    component:HistorialproveedorComponent,
     canActivate: [AuthGuard]
->>>>>>> f89302a74bc4fff323f7a4a96c9762f086624b00
-  }
-  ,
+    
+  },
   {
     path:'historialcliente',
-    component:HistorialclienteComponent
+    component:HistorialclienteComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'historialservicio',
-    component:HistorialservicioComponent
+    component:HistorialservicioComponent,
+    canActivate: [AuthGuard]
   }
 
 ];

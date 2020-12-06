@@ -9,6 +9,11 @@ import { ProvWebComponent } from './pages/prov-web/prov-web.component';
 import { RegistroProvComponent } from './pages/registro-prov/registro-prov.component';
 import { LoginComponent } from './pages/login/login.component';
 import {FormservicioComponent} from './pages/formservicio/formservicio.component';
+import {HistorialComponent} from './pages/historial/historial.component';
+import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
+import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
+import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
+
 
 //Guard para la pantalla de login en authentication
 import { AuthGuard } from './guards/auth.guard';
@@ -67,7 +72,29 @@ const routes: Routes = [
     path:'servicio',
     component:FormservicioComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'historial',
+    component:HistorialComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'historialproveedor',
+    component:HistorialproveedorComponent,
+    canActivate: [AuthGuard]
+    
+  },
+  {
+    path:'historialcliente',
+    component:HistorialclienteComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'historialservicio',
+    component:HistorialservicioComponent,
+    canActivate: [AuthGuard]
   }
+
 ];
 
 @NgModule({

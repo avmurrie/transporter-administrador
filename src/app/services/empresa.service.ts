@@ -6,6 +6,7 @@ import {Empresa} from '../models/empresa';
 })
 export class EmpresaService {
   API_URI='https://ctvehicular.pythonanywhere.com/api';
+  API_URI_SV = 'http://ctvehicular.pythonanywhere.com/api/history/service';
 
   constructor(
     private http:HttpClient
@@ -63,6 +64,18 @@ export class EmpresaService {
 
   deleteServicio(id:string){
     return this.http.delete(`${this.API_URI}/typeservice/${id}/`);
+  }
+
+  getServiceProvider(id:string){
+    return this.http.get(`${this.API_URI_SV}/provider/pk/?pk=${id}/`);
+  }
+
+  getServiceClient(id:string){
+    return this.http.get(`${this.API_URI_SV}/client/pk/?pk=${id}/`);
+  }
+
+  getServicetype(id:string){
+    return this.http.get(`${this.API_URI_SV}/typeService/type=${id}/`);
   }
 
 }

@@ -36,6 +36,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {HistorialComponent} from './pages/historial/historial.component';
+import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
+import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
+import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
 
 
 import {ChatService} from './services/chat.service';
@@ -71,6 +75,10 @@ import { PoliticasComponent } from './modals/politicas/politicas.component';
     FiltroproveedorPipe,
     FiltrotarifaPipe,
     FiltrousuarioPipe,
+    HistorialComponent,
+    HistorialproveedorComponent,
+    HistorialclienteComponent,
+    HistorialservicioComponent,
     PoliticasComponent,
    
 

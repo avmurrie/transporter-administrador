@@ -68,12 +68,14 @@ export class EmpresaComponent implements OnInit {
   }
 
   eliminarServicio(id:string){
-    this.empresaServicio.deleteServicio(id).subscribe(
-      res=>{
-        this.obtenerServicios();
-      },
-      err=>console.log(err)
-    );
+    if(confirm("¿Desea eliminar el servicio")){
+      this.empresaServicio.deleteServicio(id).subscribe(
+        res=>{
+          this.obtenerServicios();
+        },
+        err=>console.log(err)
+      );
+    }
   }
 
   openFormServicio() {
@@ -82,9 +84,10 @@ export class EmpresaComponent implements OnInit {
     dialogConfig.autoFocus=true;
     dialogConfig.width='35%';
     const dialogRef =  this.dialog.open(FormservicioComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      this.obtenerServicios();
-    });
+    dialogRef.afterClosed().subscribe(
+      value => 
+      this.obtenerServicios()
+    );
   }
 
   editarFormServicio(servicio:any) {
@@ -103,9 +106,12 @@ export class EmpresaComponent implements OnInit {
         }
       }
     );
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(
+      value => {
       this.obtenerServicios();
-    });
+      console.log(`Dialog result: ${value}`); // Pizza!
+}
+    );
   }
 
    openFormTarifa(){
@@ -114,9 +120,9 @@ export class EmpresaComponent implements OnInit {
     dialogConfig.autoFocus=true;
     dialogConfig.width='50%';
     const dialogRef =  this.dialog.open(FormtarifasComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      this.obtenerTarifas();
-    });
+    dialogRef.afterClosed().subscribe(
+      value => this.obtenerTarifas()
+    );
   }
 
   obtenerTarifas(){
@@ -127,12 +133,15 @@ export class EmpresaComponent implements OnInit {
   }
 
   eliminarTarifa(id:string){
-    this.empresaServicio.deleteTarifa(id).subscribe(
-      res=>{
-        this.obtenerTarifas();
-      },
-      err=>console.log(err)
-    );
+   // if(confirm("¿Desea eliminar la tarifa")){
+    //  console.log("simon");
+      this.empresaServicio.deleteTarifa(id).subscribe(
+        res=>{
+          this.obtenerTarifas();
+        },
+        err=>console.log(err)
+      );
+   // }
   }
 
   editarFormTarifa(tarifa:any) {
@@ -153,10 +162,14 @@ export class EmpresaComponent implements OnInit {
         }
       }
     );
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(
+      value=>{
       this.obtenerTarifas();
-    });
-  }
+      console.log(`Dialog result: ${value}`); // Pizza!
+    }
+    );
+  };
+  
 
   obtenerServicio(id:string){
     this.typeService(id);

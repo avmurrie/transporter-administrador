@@ -9,6 +9,7 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {FirebaseServicioService} from '../../services/firebase-servicio.service';
 import { Observable } from 'rxjs';
 import cars from '../../../assets/json/cars.json';
+import { getLocaleDateFormat } from '@angular/common';
 
 
 @Component({
@@ -110,7 +111,7 @@ export class FormproveedorComponent implements OnInit {
     this.vehiculo=this.secondFormGroup.value;
     console.log(this.proveedor);
     console.log(this.vehiculo);
-    this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
+    /*this.firebaseServicio.SignUp(this.proveedor.emailDriver,'adwri545')
     .then((value)=>{
       console.log("valor"+value);
       this.firebaseServicio.sendPasswordResetEmail(this.proveedor.emailDriver)
@@ -136,7 +137,7 @@ export class FormproveedorComponent implements OnInit {
 
     .catch((e)=>{
       alert(e);  
-    })
+    })*/
   }
   else{
     alert("Registro incompleto");
@@ -181,6 +182,24 @@ export class FormproveedorComponent implements OnInit {
     const ref=this.storage.ref(filePath);
     const task=this.storage.upload(filePath,file);
     (await task).ref.getDownloadURL().then(url=>{this.secondFormGroup.patchValue({pictureVehicle:url})});
+  }
+
+  validarEdad(){
+    var dateControl = (<HTMLInputElement>document.getElementById("myDate")).value;
+    var age= new Date(dateControl);
+    var time = Math.abs(Date.now() - age.valueOf());
+    console.log("diferencia edad",time);
+    var edad = Math.floor((time / (1000 * 3600 * 24))/365.25);
+    console.log("la edad es ",edad);
+    if(edad<18){
+      this.firstFormGroup.controls['birthdateDriver'].setErrors({'incorrect':true});
+    }
+  }
+
+  validarCedula(){
+    console.log("lalalala");
+    var cedulaProveedor = (<HTMLInputElement>document.getElementById("cedula")).value;
+   console.log("cedula prov",cedulaProveedor);
   }
 
 }

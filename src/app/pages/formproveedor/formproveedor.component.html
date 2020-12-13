@@ -14,7 +14,7 @@
         <div class="container">
           <h5>Cédula</h5>
           <mat-form-field appearance="fill">
-          <input matInput type="text" formControlName="ciDriver" required> 
+          <input matInput type="text" id="cedula" (change)="validarCedula()" formControlName="ciDriver" required> 
           </mat-form-field>
         </div>
        <div class="container">
@@ -32,9 +32,7 @@
         <div class="container">
           <h5>Fecha de nacimiento</h5>
           <mat-form-field appearance="fill">
-            <input matInput [matDatepicker]="picker" formControlName="birthdateDriver" required>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input matInput id="myDate" type="date" (change)="validarEdad()" formControlName="birthdateDriver" required/>
           </mat-form-field>
         </div>
       </div>

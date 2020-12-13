@@ -134,7 +134,6 @@ export class EmpresaComponent implements OnInit {
 
   eliminarTarifa(id:string){
     if(confirm("¿Desea eliminar la tarifa")){
-    //  console.log("simon");
       this.empresaServicio.deleteTarifa(id).subscribe(
         res=>{
           this.obtenerTarifas();

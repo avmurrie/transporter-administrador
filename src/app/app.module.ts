@@ -53,6 +53,7 @@ import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
 import { PoliticasComponent } from './modals/politicas/politicas.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { PoliticasComponent } from './modals/politicas/politicas.component';
     HistorialclienteComponent,
     HistorialservicioComponent,
     PoliticasComponent,
+    AdminComponent,
    
 
   ],

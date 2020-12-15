@@ -13,7 +13,7 @@ import {HistorialComponent} from './pages/historial/historial.component';
 import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
 import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
 import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
-
+import {AdminComponent} from './pages/admin/admin.component';
 
 //Guard para la pantalla de login en authentication
 import { AuthGuard } from './guards/auth.guard';
@@ -76,6 +76,11 @@ const routes: Routes = [
   {
     path:'historial',
     component:HistorialComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'administrador',
+    component:AdminComponent,
     canActivate: [AuthGuard]
   },
   {

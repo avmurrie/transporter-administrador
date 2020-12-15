@@ -54,6 +54,8 @@ import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
 import { PoliticasComponent } from './modals/politicas/politicas.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { FormadminComponent } from './pages/formadmin/formadmin.component';
+import { FormempresaComponent } from './pages/formempresa/formempresa.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,8 @@ import { AdminComponent } from './pages/admin/admin.component';
     HistorialservicioComponent,
     PoliticasComponent,
     AdminComponent,
+    FormadminComponent,
+    FormempresaComponent,
    
 
   ],

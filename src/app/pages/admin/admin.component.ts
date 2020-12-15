@@ -33,7 +33,7 @@ export class AdminComponent implements OnInit {
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=false;
     dialogConfig.autoFocus=true;
-    dialogConfig.height='70%';
+    dialogConfig.height='52%';
     dialogConfig.width='40%';
     const dialogRef =  this.dialog.open(FormadminComponent, dialogConfig);
   }

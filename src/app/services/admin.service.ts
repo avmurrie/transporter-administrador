@@ -18,4 +18,12 @@ export class AdminService {
   createEmpresa(empresa:any){
     return this.http.post(`${this.API_URI}/company/`,empresa);
   }
+
+  getAdministradores(){
+    return this.http.get(`${this.API_URI}/Manager/`);
+  }
+
+  createAdministrador(administrador:any){
+    return this.http.post(`${this.API_URI}/Manager/`,administrador);
+  }
 }

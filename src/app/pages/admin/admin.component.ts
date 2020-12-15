@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import {FormempresaComponent} from '../formempresa/formempresa.component';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog,
+
+  ) { }
 
   ngOnInit(): void {
   }
+
+
+  openFormEmpresa() {
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.height='70%';
+    dialogConfig.width='40%';
+    const dialogRef =  this.dialog.open(FormempresaComponent, dialogConfig);
+  
+  }
+
 
 }

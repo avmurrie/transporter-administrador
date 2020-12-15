@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import {FormempresaComponent} from '../formempresa/formempresa.component';
+import {FormadminComponent} from '../formadmin/formadmin.component';
 
 @Component({
   selector: 'app-admin',
@@ -25,7 +26,16 @@ export class AdminComponent implements OnInit {
     dialogConfig.height='70%';
     dialogConfig.width='40%';
     const dialogRef =  this.dialog.open(FormempresaComponent, dialogConfig);
+  }
+
   
+  openFormAdministrador() {
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.height='70%';
+    dialogConfig.width='40%';
+    const dialogRef =  this.dialog.open(FormadminComponent, dialogConfig);
   }
 
 

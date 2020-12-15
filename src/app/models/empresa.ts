@@ -1,4 +1,4 @@
-export interface Empresa{
+export interface Politica{
     politica?:string;
 }
 
@@ -15,4 +15,12 @@ export interface Tarifa{
     maxFare?:string;
     priceFare?:string;
     idCompanyFare?:string
+}
+
+export interface Empresa{
+    ruc?:string;
+    nameCompany:string;
+    direccion?:string;
+    telefono?:string;
+    correo?:string;
 }

@@ -28,6 +28,18 @@ div h1 {
     height:20px;
     margin-right: 5%;
 }
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
 
 .msg-bg{
     background-color: #F7F7F8;

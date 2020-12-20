@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+
+<div class="page-content">
+    <p>mapa works!</p>
+    <div class="container padnav">
+        
+          <div>
+            <h4>Siguiendo a: <strong class="text-primary">{{usuario_seleccionado.nombre}}</strong> </h4>
+            <!--mapa-->
+      
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" [mapTypeControl]="true">
+              <agm-marker
+              *ngFor="let usuario of usuarios"
+              [latitude]="usuario.lat"
+              [longitude]="usuario.lng"
+              [label]="usuario.nombre">
+            </agm-marker>
+            </agm-map>
+      
+          </div><!--sm-8-->
+      
+         
+        </div>
+      
+</div>

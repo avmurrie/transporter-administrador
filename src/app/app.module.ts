@@ -25,6 +25,7 @@ import { MenuusuarioComponent } from './pages/menuusuario/menuusuario.component'
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { ChatComponent } from './pages/chat/chat.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -40,6 +41,7 @@ import {HistorialComponent} from './pages/historial/historial.component';
 import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
 import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
 import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 import {ChatService} from './services/chat.service';
@@ -53,6 +55,7 @@ import { FiltroproveedorPipe } from './pipes/filtroproveedor.pipe';
 import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
 import { PoliticasComponent } from './modals/politicas/politicas.component';
+import { MapaComponent } from './pages/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +83,7 @@ import { PoliticasComponent } from './modals/politicas/politicas.component';
     HistorialclienteComponent,
     HistorialservicioComponent,
     PoliticasComponent,
+    MapaComponent,
    
 
   ],
@@ -104,11 +108,15 @@ import { PoliticasComponent } from './modals/politicas/politicas.component';
     MatSlideToggleModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
+    AngularFireDatabaseModule,
     ShowHidePasswordModule ,
     MatListModule,
     MatGridListModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD1yk1QZHkYQWxO-JZ5idDHcfHpkKzf0tg'
+    })
   ],
   providers: [ProveedorService,AuthService, ChatService ],
   entryComponents:[MatDialogModule,MatSelectModule],

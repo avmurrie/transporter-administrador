@@ -19,6 +19,7 @@ import {HistorialservicioComponent} from './pages/historialservicio/historialser
 import { AuthGuard } from './guards/auth.guard';
 //Guard para la pantalla de login en authentication
 import { NotloginGuard } from './guards/notlogin.guard'
+import { MapaComponent } from './pages/mapa/mapa.component';
 const routes: Routes = [
   {
     path: '',
@@ -92,6 +93,11 @@ const routes: Routes = [
   {
     path:'historialservicio',
     component:HistorialservicioComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'mapa',
+    component:MapaComponent,
     canActivate: [AuthGuard]
   }
 

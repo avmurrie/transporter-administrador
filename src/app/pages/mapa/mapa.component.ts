@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -17,21 +17,22 @@ export class MapaComponent implements OnInit {
   usuario_seleccionado:any = {}
   siguiendo:boolean = false;
 
-  constructor(db: AngularFirestore) {
+  constructor(db: AngularFireDatabase) {
     
-    db.collection('/usuarios').valueChanges()
+    db.list('users').valueChanges()
     .subscribe( (usuarios: any) => {
        console.log(usuarios);
       this.usuarios = usuarios;
       if ( this.siguiendo ) {
         // si estoy siguiendo a alguien
         for(let usuario of usuarios) {
-        if ( usuario.nombre === this.usuario_seleccionado.nombre ) {
+          this.seguir_usuario(usuario);
+        /*if ( usuario.nombre === this.usuario_seleccionado.nombre ) {
           this.lat = usuario.lat;
           console.log(this.lat);
           this.lng = usuario.lng;
           console.log(this.lng);
-        }
+        }*/
       }
       }
     } );

@@ -56,6 +56,7 @@ import { FiltrotarifaPipe } from './pipes/filtrotarifa.pipe';
 import { FiltrousuarioPipe } from './pipes/filtrousuario.pipe';
 import { PoliticasComponent } from './modals/politicas/politicas.component';
 import { MapaComponent } from './pages/mapa/mapa.component';
+import { InfCarreraComponent } from './modals/inf-carrera/inf-carrera.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { MapaComponent } from './pages/mapa/mapa.component';
     HistorialservicioComponent,
     PoliticasComponent,
     MapaComponent,
+    InfCarreraComponent,
    
 
   ],

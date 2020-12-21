@@ -13,6 +13,7 @@ import {HistorialComponent} from './pages/historial/historial.component';
 import {HistorialproveedorComponent} from './pages/historialproveedor/historialproveedor.component';
 import {HistorialclienteComponent} from './pages/historialcliente/historialcliente.component';
 import {HistorialservicioComponent} from './pages/historialservicio/historialservicio.component';
+import {InfCarreraComponent} from './modals/inf-carrera/inf-carrera.component';
 
 
 //Guard para la pantalla de login en authentication
@@ -98,6 +99,11 @@ const routes: Routes = [
   {
     path:'mapa',
     component:MapaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'info',
+    component:InfCarreraComponent,
     canActivate: [AuthGuard]
   }
 

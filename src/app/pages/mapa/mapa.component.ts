@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 
@@ -12,14 +12,14 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class MapaComponent implements OnInit {
   map = null;
   usuarios:any[] = [];
-  lat: number = 51.678418;
-  lng: number = -79.9;
+  lat: number = -2.2058400;
+  lng: number = -79.9079500;
   usuario_seleccionado:any = {}
   siguiendo:boolean = false;
 
-  constructor(db: AngularFireDatabase) {
+  constructor(db: AngularFirestore) {
     
-    db.list('/usuarios').valueChanges()
+    db.collection('/usuarios').valueChanges()
     .subscribe( (usuarios: any) => {
        console.log(usuarios);
       this.usuarios = usuarios;

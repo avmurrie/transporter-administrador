@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-
+import {MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { InfCarreraComponent } from 'src/app/modals/inf-carrera/inf-carrera.component';
+import { PoliticasComponent } from 'src/app/modals/politicas/politicas.component';
 
 
 //declare var google;
@@ -14,19 +16,28 @@ export class MapaComponent implements OnInit {
   usuarios:any[] = [];
   lat: number = -2.2058400;
   lng: number = -79.9079500;
-  usuario_seleccionado:any = {}
+  usuario_seleccionado:any = {};
+  
   siguiendo:boolean = false;
+  iconMap={
+    iconUrl:"assets/iconos/camionetaicon2.png",
+    iconHeight:10
+  }
 
-  constructor(db: AngularFireDatabase) {
+  constructor(private dialog: MatDialog, 
+              db: AngularFireDatabase) {
     
-    db.list('users').valueChanges()
+    db.list('/usuarios').valueChanges()
     .subscribe( (usuarios: any) => {
        console.log(usuarios);
       this.usuarios = usuarios;
-      if ( this.siguiendo ) {
+      
         // si estoy siguiendo a alguien
         for(let usuario of usuarios) {
-          this.seguir_usuario(usuario);
+          this.lat = usuario.lat;
+          this.lng = usuario.lng;
+          //this.seguir_usuario(usuario);
+          console.log(usuario);
         /*if ( usuario.nombre === this.usuario_seleccionado.nombre ) {
           this.lat = usuario.lat;
           console.log(this.lat);
@@ -34,7 +45,7 @@ export class MapaComponent implements OnInit {
           console.log(this.lng);
         }*/
       }
-      }
+     
     } );
    }
 
@@ -69,16 +80,33 @@ export class MapaComponent implements OnInit {
   seguir_usuario( usuario: any ) {
     console.log ( usuario );
     this.siguiendo = true;
-
     this.lat = usuario.lat;
     this.lng = usuario.lng;
-    this.usuario_seleccionado = usuario;
+    
   }
 
 
   dejar_seguir() {
     this.siguiendo = false;
     this.usuario_seleccionado = {};
+  }
+
+  openDialogServicio(usuario: any){
+    
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.autoFocus=true;
+    dialogConfig.width='60%';
+    dialogConfig.data={
+      email: usuario.email
+    }
+    //dialogConfig.height='80%';
+    
+    const dialogRef=this.dialog.open(InfCarreraComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      data => console.log("Dialog output:", data)
+  );    
+    
   }
 
 }

@@ -1,17 +1,18 @@
-mat-card{
-    height: 40%;
-    width: 30%;
-}
+
 #header-card{
     background: linear-gradient(-90deg,#20478B ,#2487C9);    
     color:white;
+    display: grid;
     justify-content: center;
     align-items: center;
     height: 50px;
 }
+.border{
+  border: 1px;
+}
 
-card-title{
-    font-size: 13px;
+h3{
+    font-size: 1.5rem;
     padding-top: 5%;
     height: 50px;
   }
@@ -20,10 +21,10 @@ card-title{
   #body-content{
     
     width: 95%;
-    height: 150;
+    height: 200;
     font-size: 14px;
-    padding-left: 3px;
-    
+    margin-left: 1em;
+    margin-top: 1em;    
     justify-content: center;
     align-content: center;   
 
@@ -33,16 +34,16 @@ card-title{
   #buttons-content{
     display: grid;
     width: 100%;
-    grid-template-columns:repeat(2,50%) ; 
     justify-items:center;
     align-items: center;
 
   }
     
   .btn{
-    background: #E5242F;  
-    border-radius:50%; 
-    width:50px;
-    height: 50px;
+    background: #E5242F;
+    color: white;  
+    margin-bottom: 5%; 
+    width:100px;
+    height: 40px;
 
   }
